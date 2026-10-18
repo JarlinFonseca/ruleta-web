@@ -44,14 +44,13 @@
   border-radius: 50%;
   background: transparent;
   color: inherit;
-  transition:
-    transform 0.25s ease,
-    filter 0.25s ease;
 }
 
-.hit:hover:not(:disabled) {
-  transform: scale(1.012);
-  filter: brightness(1.06);
+/* El hover solo anima el centro "Girar": escalar la ruleta entera cambiaba el alto de la página
+   (la barra de desplazamiento aparecía o desaparecía y todo saltaba) y la repintaba completa. */
+.hit:hover:not(:disabled) .hub {
+  transform: translate(-50%, -50%) scale(1.08);
+  filter: brightness(1.1);
 }
 
 .hit:focus-visible {
@@ -208,6 +207,9 @@
   box-shadow:
     0 10px 24px rgb(0 0 0 / 0.55),
     inset 0 -4px 8px rgb(58 44 18 / 0.5);
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
 }
 
 .hubFace {

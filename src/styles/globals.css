@@ -12,6 +12,8 @@
 html {
   color-scheme: dark;
   -webkit-text-size-adjust: 100%;
+  /* Reserva el espacio de la barra de desplazamiento: si aparece o desaparece, el contenido no salta. */
+  scrollbar-gutter: stable;
 }
 
 body {
