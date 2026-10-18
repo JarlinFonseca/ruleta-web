@@ -1,0 +1,61 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.labelRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-ivory-soft);
+}
+
+.optional {
+  font-weight: 500;
+  color: var(--color-ivory-faint);
+}
+
+.input {
+  width: 100%;
+  min-height: 50px;
+  padding: 0 16px;
+  border-radius: var(--radius-control);
+  background: var(--color-ink-raised);
+  color: var(--color-ivory);
+  border: 1px solid var(--color-line-input);
+  font-size: 0.9375rem;
+}
+
+.inputDark {
+  background: var(--color-ink);
+}
+
+.input:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 0;
+  border-color: var(--color-gold);
+}
+
+.input[aria-invalid='true'] {
+  border-color: var(--color-danger);
+}
+
+.hint {
+  font-size: 0.75rem;
+  color: var(--color-ivory-faint);
+}
+
+.error {
+  font-size: 0.8125rem;
+  color: var(--color-danger);
+  font-weight: 600;
+}

@@ -1,0 +1,582 @@
+{
+  "brand": {
+    "name": "Ruleta",
+    "homeLabel": "Ruleta, go to home"
+  },
+  "common": {
+    "cancel": "Cancel",
+    "close": "Close",
+    "dismiss": "Dismiss notice",
+    "loading": "Loading…",
+    "optional": "(optional)",
+    "retry": "Try again",
+    "save": "Save",
+    "skipToContent": "Skip to content",
+    "working": "One moment…"
+  },
+  "language": {
+    "groupLabel": "Idioma / Language",
+    "inParens": " ({{name}})",
+    "es": "Español",
+    "en": "English",
+    "short": {
+      "es": "ES",
+      "en": "EN"
+    }
+  },
+  "nav": {
+    "public": "Account",
+    "main": "Main",
+    "signIn": "Sign in",
+    "signUp": "Create account",
+    "myRaffles": "My raffles",
+    "raffle": "Raffle",
+    "participants": "Participants",
+    "history": "History",
+    "account": "My account",
+    "signOut": "Sign out",
+    "adminBadge": "Administrator",
+    "admin": "Administration"
+  },
+  "save": {
+    "saving": "Saving…",
+    "saved": "Saved",
+    "error": "Couldn't save"
+  },
+  "wheel": {
+    "hub": "Spin",
+    "hubSpinning": "···",
+    "spin": "Spin the wheel",
+    "spinning": "Spinning…",
+    "spinLabel_one": "Spin the wheel with {{count}} participant",
+    "spinLabel_other": "Spin the wheel with {{count}} participants",
+    "spinningLabel": "The wheel is spinning",
+    "announce": "Winner: {{name}}"
+  },
+  "winner": {
+    "eyebrow": "Winner · Spin {{round}}",
+    "pool_one": "Picked at random from {{count}} participant.",
+    "pool_other": "Picked at random from {{count}} participants.",
+    "saved": "Saved to the history.",
+    "spinAgain": "Spin again",
+    "remove": "Remove from the wheel",
+    "removedNote": "No longer on the wheel.",
+    "photoAlt": "Photo of {{name}}"
+  },
+  "guest": {
+    "banner": {
+      "pill": "Trial mode",
+      "text": "Names you add here are not saved. Create an account to keep your participants, add photos and run raffles again.",
+      "cta": "Create a free account"
+    },
+    "title": {
+      "start": "Let luck",
+      "accent": "decide",
+      "end": "."
+    },
+    "subtitle": "Spin as many times as you like. Every spin is independent and fair.",
+    "wheel": {
+      "needTwo": "Add at least 2 names to spin"
+    },
+    "list": {
+      "title": "Participants",
+      "label": "Names on the wheel",
+      "count_one": "{{count}} name",
+      "count_other": "{{count}} names",
+      "remove": "Remove {{name}}",
+      "shuffle": "Shuffle order",
+      "clear": "Clear list"
+    },
+    "form": {
+      "label": "Participant name",
+      "placeholder": "e.g. Ana Gómez, Luis Pérez",
+      "add": "Add",
+      "hint": "Press Enter to add · separate with commas to paste several",
+      "tooLong": "60 characters maximum",
+      "limit_one": "You reached the maximum of {{count}} name",
+      "limit_other": "You reached the maximum of {{count}} names"
+    },
+    "history": {
+      "title": "Winners this session",
+      "empty": "No winners yet. Spin the wheel to start.",
+      "round": "Spin {{round}}:"
+    },
+    "clearDialog": {
+      "title": "Clear the list?",
+      "description_one": "{{count}} name will be removed from the wheel. This can't be undone.",
+      "description_other": "{{count}} names will be removed from the wheel. This can't be undone.",
+      "confirm": "Clear list"
+    },
+    "fairness": "Picked with the browser's cryptographic randomness and unbiased sampling: every participant has exactly the same chance on every spin."
+  },
+  "auth": {
+    "hero": {
+      "titleStart": "Save your raffles.",
+      "titleAccent": "Spin whenever you want.",
+      "benefit1": "Your participants are saved",
+      "benefit2": "Optional photo of each person on the wheel",
+      "benefit3": "Winner history for each raffle",
+      "fairness": "Fair raffles: cryptographic randomness on every spin."
+    },
+    "tabs": {
+      "label": "Access",
+      "signIn": "Sign in",
+      "signUp": "Create account"
+    },
+    "fields": {
+      "email": "Email",
+      "emailPlaceholder": "you@email.com",
+      "password": "Password",
+      "newPassword": "New password",
+      "passwordPlaceholder": "At least 8 characters",
+      "confirm": "Confirm password",
+      "confirmPlaceholder": "Repeat your password"
+    },
+    "validation": {
+      "required": "This field is required",
+      "email": "Invalid email",
+      "weak": "The password doesn't meet the requirements",
+      "mismatch": "Passwords don't match"
+    },
+    "requirements": {
+      "title": "Password requirements",
+      "length": "At least 8 characters",
+      "letter": "At least 1 letter",
+      "number": "At least 1 number",
+      "met": "(met)",
+      "pending": "(pending)"
+    },
+    "signIn": {
+      "heading": "Welcome back",
+      "subheading": "Sign in to see your saved raffles.",
+      "forgot": "Forgot it?",
+      "submit": "Sign in"
+    },
+    "signUp": {
+      "heading": "Create your account",
+      "subheading": "All you need is an email and a password.",
+      "submit": "Create account",
+      "duplicate": "We couldn't create an account with that email. Already have one?",
+      "duplicateCta": "Sign in",
+      "migrationNote_one": "The name you added in trial mode will move to your first raffle.",
+      "migrationNote_other": "The {{count}} names you added in trial mode will move to your first raffle.",
+      "firstRaffleNote": "We'll create your first raffle so you can start right away.",
+      "migrationFailed": "Your account is ready, but we couldn't move the trial-mode names. Add them from Participants."
+    },
+    "forgot": {
+      "heading": "Recover your password",
+      "subheading": "Enter your email and we'll send you a link to create a new one.",
+      "submit": "Send link",
+      "sent": "If the email exists, we sent you a link. Check your inbox (it expires in 60 minutes)."
+    },
+    "reset": {
+      "heading": "Create a new password",
+      "subheading": "Saving it will sign you out of your other sessions.",
+      "submit": "Save password",
+      "requestAnother": "Request another link",
+      "done": "Password updated. You're signed in."
+    },
+    "or": "or",
+    "continueAsGuest": "Continue without an account (trial mode)",
+    "backToSignIn": "Back to sign in",
+    "sessionExpired": "Your session ended. Please sign in again."
+  },
+  "raffles": {
+    "firstRaffleName": "My first raffle",
+    "goToMine": "Go to my raffles",
+    "switcher": {
+      "label": "Switch raffle:",
+      "yourRaffles": "Your raffles",
+      "rename": "Rename raffle",
+      "delete": "Delete raffle"
+    },
+    "name": {
+      "label": "Raffle name",
+      "placeholder": "e.g. Year-end raffle",
+      "required": "Give the raffle a name",
+      "tooLong_one": "{{count}} character maximum",
+      "tooLong_other": "{{count}} characters maximum"
+    },
+    "create": {
+      "button": "+ New raffle",
+      "title": "New raffle",
+      "submit": "Create raffle",
+      "limit_one": "You reached the maximum of {{count}} raffle",
+      "limit_other": "You reached the maximum of {{count}} raffles"
+    },
+    "rename": {
+      "title": "Rename raffle"
+    },
+    "delete": {
+      "title": "Delete “{{name}}”?",
+      "description": "{{participants}} participants and {{spins}} history spins will be lost. This can't be undone.",
+      "confirm": "Delete raffle",
+      "done": "Raffle deleted"
+    },
+    "options": {
+      "label": "Raffle options",
+      "removeWinner": "Remove the winner after each spin",
+      "winnerEmail": "Email the winner",
+      "winnerEmailHint": "Available in an upcoming version",
+      "soon": "Soon"
+    },
+    "panel": {
+      "manage": "Manage participants",
+      "needTwo": "You need at least 2 active participants",
+      "wheelRegion": "Wheel"
+    }
+  },
+  "participants": {
+    "title": "Participants",
+    "add": "Add participant",
+    "empty": "This raffle has no participants yet. Add the first one.",
+    "limit_one": "You reached the maximum of {{count}}",
+    "limit_other": "You reached the maximum of {{count}}",
+    "summary_one": "{{count}} participant · {{photos}} with photo",
+    "summary_other": "{{count}} participants · {{photos}} with photo",
+    "needsLastName": "Complete this participant's last name.",
+    "needsLastNameShort": "Complete the last name",
+    "search": {
+      "label": "Search participant",
+      "placeholder": "Search by first or last name",
+      "noResults": "No participant matches the search."
+    },
+    "table": {
+      "caption": "Raffle participants",
+      "firstName": "Participant",
+      "lastName": "Last name",
+      "email": "Email",
+      "noEmail": "No email",
+      "active": "On the wheel",
+      "activeLabel": "{{name}} on the wheel",
+      "actions": "Actions",
+      "edit": "Edit {{name}}",
+      "delete": "Delete {{name}}"
+    },
+    "active": {
+      "title": "On the wheel",
+      "count": "{{active}} of {{total}} active",
+      "empty": "No participants yet. Add them in “Manage participants”."
+    },
+    "fields": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "emailPlaceholder": "name@email.com",
+      "emailHint": "Only used to let them know if they win."
+    },
+    "validation": {
+      "required": "This field is required",
+      "tooLong": "60 characters maximum",
+      "email": "Invalid email"
+    },
+    "editor": {
+      "addTitle": "Add participant",
+      "editTitle": "Edit participant",
+      "close": "Close panel",
+      "add": "Save participant",
+      "save": "Save changes",
+      "added": "{{name}} is now in the raffle",
+      "enterHint": "Press Enter to save and keep adding."
+    },
+    "photo": {
+      "label": "Photo",
+      "choose": "Choose photo",
+      "change": "Change photo",
+      "remove": "Remove",
+      "hint": "JPG, PNG or WebP, up to 2 MB. You can also drag it here. It's cropped into a circle for the wheel.",
+      "invalid": "Use a JPG, PNG or WebP image of up to 2 MB",
+      "uploadFailed": "We couldn't upload the photo. Try again",
+      "cropTitle": "Adjust the framing",
+      "zoom": "Zoom",
+      "useCrop": "Use this photo"
+    },
+    "delete": {
+      "title": "Delete {{name}}?",
+      "description": "They will leave the raffle and the wheel. Their history entries keep the original name.",
+      "confirm": "Delete participant",
+      "done": "Participant deleted"
+    }
+  },
+  "spins": {
+    "recent": {
+      "title": "Latest winners",
+      "empty": "No spins in this raffle yet."
+    },
+    "history": {
+      "title": "History",
+      "caption": "Raffle spins, newest first",
+      "round": "Spin",
+      "winner": "Winner",
+      "date": "Date and time",
+      "pool": "Participants",
+      "empty": "No spins saved in this raffle yet.",
+      "clear": "Clear history",
+      "pagination": "History pages",
+      "range": "Showing {{from}}–{{to}} of {{total}}",
+      "page": "Page {{page}} of {{pages}}",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "clearDialog": {
+      "title": "Clear the history?",
+      "description_one": "{{count}} spin will be deleted and the next round will be 1 again.",
+      "description_other": "{{count}} spins will be deleted and the next round will be 1 again.",
+      "confirm": "Clear history",
+      "done": "History cleared"
+    }
+  },
+  "account": {
+    "title": "My account",
+    "profile": {
+      "title": "Profile",
+      "email": "Email",
+      "language": "Language",
+      "languageHint": "Saved to your account and applied on any device."
+    },
+    "delete": {
+      "title": "Delete account",
+      "text": "Your account, raffles, participants, history and photos will be deleted. This can't be undone.",
+      "button": "Delete account",
+      "dialogTitle": "Delete your account?",
+      "dialogText": "To confirm, type {{word}} in the field below.",
+      "typeLabel": "Type {{word}}",
+      "word": "DELETE",
+      "confirm": "Delete permanently",
+      "done": "Your account was deleted."
+    }
+  },
+  "notFound": {
+    "title": "This page doesn't exist.",
+    "cta": "Go to the wheel"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "supportCode": "Code: {{code}}",
+    "loadFailed": "We couldn't load the information.",
+    "renderFailed": "Something went wrong while showing this screen.",
+    "network": {
+      "unavailable": "Can't reach the server. Check your connection and try again.",
+      "timeout": "The server took too long to respond. Please try again."
+    },
+    "field": {
+      "required": "This field is required",
+      "size": "The length is not valid",
+      "format": "The format is not valid",
+      "range": "The value is out of range",
+      "invalid": "The value is not valid"
+    },
+    "request": {
+      "malformed": "The request is not valid.",
+      "not_acceptable": "Format not available."
+    },
+    "password_reset": {
+      "invalid_token": "This link is no longer valid"
+    },
+    "auth": {
+      "unauthenticated": "Sign in to continue.",
+      "invalid_credentials": "Incorrect email or password",
+      "token_expired": "Your session expired. Please sign in again.",
+      "session_revoked": "Your session ended. Please sign in again.",
+      "csrf_invalid": "The page was idle for too long. Reload and try again.",
+      "forbidden": "You don't have permission to do this."
+    },
+    "raffle": {
+      "not_found": "This raffle doesn't exist or is no longer available.",
+      "limit_reached": "You reached the maximum of 50 raffles.",
+      "concurrent_modification": "Another tab saved changes. Reload to continue.",
+      "name": {
+        "invalid": "Give the raffle a name"
+      }
+    },
+    "participant": {
+      "not_found": "This participant no longer exists.",
+      "limit_reached": "You reached the maximum of 200",
+      "concurrent_modification": "Another tab saved changes. Reload to continue.",
+      "name": {
+        "invalid": "First and last name: 1 to 60 characters."
+      }
+    },
+    "spin": {
+      "not_found": "This spin no longer exists.",
+      "not_enough_participants": "You need at least 2 active participants"
+    },
+    "user": {
+      "email": {
+        "duplicate": "We couldn't create an account with that email. Already have one? Sign in"
+      },
+      "concurrent_modification": "Another tab saved changes. Reload to continue.",
+      "not_found": "This account no longer exists."
+    },
+    "resource": {
+      "not_found": "We couldn't find what you're looking for."
+    },
+    "email": {
+      "already_sent": "This email was already sent.",
+      "no_recipient": "This participant has no email."
+    },
+    "file": {
+      "too_large": "Use a JPG, PNG or WebP image of up to 2 MB",
+      "unsupported_type": "Use a JPG, PNG or WebP image of up to 2 MB"
+    },
+    "password": {
+      "weak": "The password must have at least 8 characters, with at least 1 letter and 1 number."
+    },
+    "rate_limit": {
+      "exceeded_one": "Too many attempts. Try again in {{count}} minute",
+      "exceeded_other": "Too many attempts. Try again in {{count}} minutes"
+    },
+    "internal": {
+      "error": "Something went wrong. Please try again."
+    },
+    "method": {
+      "not_implemented": "This operation is not available."
+    },
+    "service": {
+      "unavailable": "The service is unavailable right now. Try again in a few minutes."
+    },
+    "admin": {
+      "protected_account": "Administrator accounts can't be modified."
+    }
+  },
+  "admin": {
+    "title": "Administration",
+    "eyebrow": "Platform panel",
+    "tabs": {
+      "label": "Administration sections",
+      "dashboard": "Dashboard",
+      "users": "Users",
+      "raffles": "Raffles",
+      "spins": "Spins and winners"
+    },
+    "roles": {
+      "USER": "User",
+      "ADMIN": "Administrator"
+    },
+    "showSpins": "View spins",
+    "showSpinsFor": "View spins of {{name}}",
+    "sort": {
+      "hint": "(sort)"
+    },
+    "pagination": {
+      "label": "Pages",
+      "range": "Showing {{from}}–{{to}} of {{total}}",
+      "page": "Page {{page}} of {{pages}}",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "filters": {
+      "label": "Active filters",
+      "owner": "User: {{email}}",
+      "raffle": "Raffle: {{name}}",
+      "remove": "Remove filter {{label}}"
+    },
+    "emailStatus": {
+      "NONE": "—",
+      "SCHEDULED": "Scheduled",
+      "SENT": "Sent",
+      "FAILED": "Failed",
+      "NO_EMAIL": "No email",
+      "DISABLED": "Disabled"
+    },
+    "dashboard": {
+      "kpiTitle": "Key figures",
+      "kpi": {
+        "users": "Users",
+        "admins": "Administrators",
+        "raffles": "Raffles",
+        "participants": "Participants",
+        "spins": "Spins",
+        "spinsLast24h": "Spins last 24 h",
+        "pendingEmails": "Pending emails"
+      },
+      "activityTitle": "Daily activity",
+      "rangeLabel": "Period",
+      "rangeDays_one": "{{count}} day",
+      "rangeDays_other": "{{count}} days",
+      "series": {
+        "newUsers": "New users",
+        "newRaffles": "New raffles",
+        "spins": "Spins"
+      },
+      "chartTitle_one": "Activity in the last day",
+      "chartTitle_other": "Activity in the last {{count}} days",
+      "chartDesc": "Period totals: {{users}} new users, {{raffles}} new raffles and {{spins}} spins. The following table has the daily detail.",
+      "tableCaption": "Activity by day",
+      "day": "Day",
+      "recentTitle": "Latest spins",
+      "recentMeta": "{{raffle}} · {{owner}} · spin {{round}}"
+    },
+    "users": {
+      "caption": "Registered users",
+      "searchLabel": "Search user by email",
+      "searchPlaceholder": "Search by email",
+      "create": "Create account",
+      "createTitle": "Create user account",
+      "createSubmit": "Create account",
+      "editTitle": "Edit account",
+      "language": "Language",
+      "newPassword": "New password",
+      "passwordWarning": "Changing the password will sign this user out of all sessions.",
+      "roleNote": "Accounts created here are always of type User.",
+      "duplicate": "An account with that email already exists.",
+      "created": "Account {{email}} created",
+      "updated": "Account {{email}} updated",
+      "deleted": "Account {{email}} deleted",
+      "edit": "Edit {{email}}",
+      "delete": "Delete {{email}}",
+      "deleteTitle": "Delete the account {{email}}?",
+      "deleteText": "Their {{raffles}} raffles, {{participants}} participants, {{spins}} history spins and photos will be deleted. This can't be undone.",
+      "deleteType": "Type {{email}} to confirm",
+      "deleteConfirm": "Delete account",
+      "protected": "Protected account",
+      "protectedHint": "Administrator accounts can't be edited or deleted from here.",
+      "never": "No activity",
+      "empty": "No users yet.",
+      "noResults": "No user matches the search.",
+      "columns": {
+        "email": "Email",
+        "language": "Language",
+        "role": "Role",
+        "created": "Signed up",
+        "raffles": "Raffles",
+        "participants": "Participants",
+        "spins": "Spins",
+        "lastActivity": "Last activity",
+        "actions": "Actions"
+      }
+    },
+    "raffles": {
+      "caption": "All users' raffles",
+      "searchLabel": "Search raffle",
+      "searchPlaceholder": "Search by name or owner's email",
+      "empty": "No raffles match.",
+      "filterByOwner": "Filter by {{email}}",
+      "columns": {
+        "name": "Raffle",
+        "owner": "Owner",
+        "participants": "Participants",
+        "active": "Active",
+        "spins": "Spins",
+        "created": "Created",
+        "updated": "Updated"
+      }
+    },
+    "spins": {
+      "caption": "Spins and winners",
+      "searchLabel": "Search spin",
+      "searchPlaceholder": "Search by winner, raffle or email",
+      "empty": "No spins match.",
+      "filterByRaffle": "Filter by {{name}}",
+      "columns": {
+        "date": "Date",
+        "raffle": "Raffle",
+        "owner": "Owner",
+        "round": "Round",
+        "winner": "Winner",
+        "pool": "Participants",
+        "email": "Email"
+      }
+    }
+  }
+}

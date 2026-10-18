@@ -1,0 +1,468 @@
+.layout {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100%;
+}
+
+.main {
+  flex: 999 1 520px;
+  min-width: 0;
+  padding: 36px clamp(16px, 4vw, 40px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.pageHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.raffleName {
+  font-size: 0.8125rem;
+  color: var(--color-ivory-muted);
+  overflow-wrap: anywhere;
+}
+
+.pageTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 6vw, 3rem);
+  line-height: 1;
+}
+
+.headerActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.searchBox {
+  flex: 1 1 280px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchBox svg {
+  position: absolute;
+  left: 14px;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 16px 0 42px;
+  border-radius: var(--radius-control);
+  background: var(--color-ink-raised);
+  color: var(--color-ivory);
+  border: 1px solid rgb(243 239 230 / 0.12);
+  font-size: 0.875rem;
+}
+
+.count {
+  font-size: 0.875rem;
+  color: var(--color-ivory-muted);
+}
+
+.muted {
+  font-size: 0.875rem;
+  color: var(--color-ivory-faint);
+}
+
+.stateBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 24px;
+  border-radius: 18px;
+  border: 1px dashed var(--color-line-strong);
+  color: var(--color-ivory-soft);
+}
+
+.warning {
+  padding: 10px 14px;
+  border-radius: var(--radius-control);
+  border: 1px solid rgb(212 176 106 / 0.4);
+  background: var(--color-gold-tint);
+  color: var(--color-gold-light);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.tableWrap {
+  overflow-x: auto;
+  border-radius: 18px;
+  border: 1px solid var(--color-line);
+  background: var(--color-ink-raised);
+}
+
+.table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.table th {
+  text-align: left;
+  padding: 16px 12px;
+  color: var(--color-ivory-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.table th:first-child,
+.table td:first-child {
+  padding-left: 20px;
+}
+
+.table th:last-child,
+.table td:last-child {
+  padding-right: 20px;
+}
+
+.table td {
+  padding: 10px 12px;
+  border-top: 1px solid var(--color-line-soft);
+  overflow-wrap: anywhere;
+}
+
+.alignEnd {
+  text-align: right !important;
+}
+
+.rowSelected {
+  background: var(--color-gold-row);
+}
+
+.rowInactive .firstName,
+.rowInactive td:nth-child(2) {
+  color: var(--color-ivory-faint);
+}
+
+.nameCell {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.firstName {
+  font-weight: 600;
+}
+
+.mail {
+  color: var(--color-ivory-soft);
+}
+
+.mailEmpty {
+  color: var(--color-ivory-faint);
+}
+
+.rowActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.badgeWarning {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgb(212 176 106 / 0.45);
+  color: var(--color-gold-light);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.avatar {
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--color-ink-avatar);
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-ivory);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  box-shadow: 0 0 0 1px rgb(243 239 230 / 0.2);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Panel lateral */
+.editor {
+  flex: 1 1 380px;
+  min-width: 0;
+  background: var(--color-ink-raised);
+  border-left: 1px solid rgb(212 176 106 / 0.25);
+  padding: 36px clamp(16px, 4vw, 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  box-shadow: -30px 0 60px rgb(0 0 0 / 0.35);
+}
+
+.editorHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.editorTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.closeButton {
+  border-radius: 50% !important;
+  border: 1px solid var(--color-line-input) !important;
+}
+
+.editorForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.editorActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.grow {
+  flex: 1 1 auto;
+}
+
+.hint {
+  font-size: 0.75rem;
+  color: var(--color-ivory-faint);
+}
+
+.errorText {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-danger);
+}
+
+.fieldLabel {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-ivory-soft);
+}
+
+.optional {
+  font-weight: 500;
+  color: var(--color-ivory-faint);
+}
+
+.photoField {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dropzone {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px dashed rgb(212 176 106 / 0.45);
+  background: var(--color-ink-sunken);
+}
+
+.dropzoneActive {
+  border-color: var(--color-gold-strong);
+  background: var(--color-gold-row);
+}
+
+.photoRing {
+  flex: 0 0 auto;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  padding: 4px;
+  border: 1px solid var(--color-gold);
+  display: flex;
+}
+
+.photoPreview {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--color-ink-avatar);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.photoPreview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photoActions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  flex: 1 1 160px;
+}
+
+.photoButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.photoButton {
+  min-height: var(--target-min);
+  padding: 0 14px;
+  border-radius: var(--radius-small);
+  border: 1px solid rgb(243 239 230 / 0.18);
+  background: var(--color-ink-chip);
+  color: var(--color-ivory);
+  font-weight: 600;
+  font-size: 0.8125rem;
+}
+
+.photoRemove {
+  min-height: var(--target-min);
+  padding: 0 10px;
+  border: 0;
+  background: transparent;
+  color: var(--color-danger);
+  font-weight: 600;
+  font-size: 0.8125rem;
+}
+
+.cropArea {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+}
+
+.zoomLabel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.875rem;
+  color: var(--color-ivory-soft);
+}
+
+.zoomLabel input {
+  flex: 1;
+  accent-color: var(--color-gold);
+  min-height: var(--target-min);
+}
+
+/* Tarjeta "En la ruleta" (pantalla 03) */
+.card {
+  background: var(--color-ink-raised);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.75rem;
+}
+
+.toggleList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 340px;
+  overflow-y: auto;
+}
+
+.toggleRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 0 8px;
+  border-radius: var(--radius-small);
+  cursor: pointer;
+}
+
+.toggleRow:hover {
+  background: rgb(29 32 40 / 0.6);
+}
+
+.toggleName {
+  font-size: 0.9375rem;
+  overflow-wrap: anywhere;
+}
+
+.toggleNameOff {
+  font-size: 0.9375rem;
+  color: var(--color-ivory-faint);
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 899px) {
+  .editor {
+    border-left: 0;
+    border-top: 1px solid rgb(212 176 106 / 0.25);
+    box-shadow: none;
+  }
+}

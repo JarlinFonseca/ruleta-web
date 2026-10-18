@@ -1,0 +1,582 @@
+{
+  "brand": {
+    "name": "Ruleta",
+    "homeLabel": "Ruleta, ir al inicio"
+  },
+  "common": {
+    "cancel": "Cancelar",
+    "close": "Cerrar",
+    "dismiss": "Cerrar aviso",
+    "loading": "Cargando…",
+    "optional": "(opcional)",
+    "retry": "Volver a intentar",
+    "save": "Guardar",
+    "skipToContent": "Saltar al contenido",
+    "working": "Un momento…"
+  },
+  "language": {
+    "groupLabel": "Idioma / Language",
+    "inParens": " ({{name}})",
+    "es": "Español",
+    "en": "English",
+    "short": {
+      "es": "ES",
+      "en": "EN"
+    }
+  },
+  "nav": {
+    "public": "Cuenta",
+    "main": "Principal",
+    "signIn": "Iniciar sesión",
+    "signUp": "Crear cuenta",
+    "myRaffles": "Mis sorteos",
+    "raffle": "Sorteo",
+    "participants": "Participantes",
+    "history": "Historial",
+    "account": "Mi cuenta",
+    "signOut": "Cerrar sesión",
+    "adminBadge": "Administrador",
+    "admin": "Administración"
+  },
+  "save": {
+    "saving": "Guardando…",
+    "saved": "Guardado",
+    "error": "Error al guardar"
+  },
+  "wheel": {
+    "hub": "Girar",
+    "hubSpinning": "···",
+    "spin": "Girar la ruleta",
+    "spinning": "Girando…",
+    "spinLabel_one": "Girar la ruleta con {{count}} participante",
+    "spinLabel_other": "Girar la ruleta con {{count}} participantes",
+    "spinningLabel": "La ruleta está girando",
+    "announce": "Ganador: {{name}}"
+  },
+  "winner": {
+    "eyebrow": "Ganador · Giro {{round}}",
+    "pool_one": "Elegido al azar entre {{count}} participante.",
+    "pool_other": "Elegido al azar entre {{count}} participantes.",
+    "saved": "Guardado en el historial.",
+    "spinAgain": "Girar de nuevo",
+    "remove": "Quitar de la ruleta",
+    "removedNote": "Ya no está en la ruleta.",
+    "photoAlt": "Foto de {{name}}"
+  },
+  "guest": {
+    "banner": {
+      "pill": "Modo prueba",
+      "text": "Los nombres que agregues aquí no se guardan. Crea una cuenta para guardar tus participantes, añadir fotos y repetir sorteos.",
+      "cta": "Crear cuenta gratis"
+    },
+    "title": {
+      "start": "Que la suerte",
+      "accent": "decida",
+      "end": "."
+    },
+    "subtitle": "Gira cuantas veces quieras. Cada giro es independiente y justo.",
+    "wheel": {
+      "needTwo": "Agrega al menos 2 nombres para girar"
+    },
+    "list": {
+      "title": "Participantes",
+      "label": "Nombres en la ruleta",
+      "count_one": "{{count}} nombre",
+      "count_other": "{{count}} nombres",
+      "remove": "Quitar a {{name}}",
+      "shuffle": "Mezclar orden",
+      "clear": "Vaciar lista"
+    },
+    "form": {
+      "label": "Nombre del participante",
+      "placeholder": "Ej. Ana Gómez, Luis Pérez",
+      "add": "Agregar",
+      "hint": "Enter para agregar · separa con comas para pegar varios",
+      "tooLong": "Máximo 60 caracteres",
+      "limit_one": "Llegaste al máximo de {{count}} nombre",
+      "limit_other": "Llegaste al máximo de {{count}} nombres"
+    },
+    "history": {
+      "title": "Ganadores de esta sesión",
+      "empty": "Aún no hay ganadores. Gira la ruleta para empezar.",
+      "round": "Giro {{round}}:"
+    },
+    "clearDialog": {
+      "title": "¿Vaciar la lista?",
+      "description_one": "Se quitará {{count}} nombre de la ruleta. Esta acción no se puede deshacer.",
+      "description_other": "Se quitarán {{count}} nombres de la ruleta. Esta acción no se puede deshacer.",
+      "confirm": "Vaciar lista"
+    },
+    "fairness": "Selección con aleatoriedad criptográfica del navegador y muestreo sin sesgo: cada participante tiene exactamente la misma probabilidad en cada giro."
+  },
+  "auth": {
+    "hero": {
+      "titleStart": "Guarda tus sorteos.",
+      "titleAccent": "Gira cuando quieras.",
+      "benefit1": "Tus participantes quedan guardados",
+      "benefit2": "Foto opcional de cada persona en la ruleta",
+      "benefit3": "Historial de ganadores por sorteo",
+      "fairness": "Sorteos justos: aleatoriedad criptográfica en cada giro."
+    },
+    "tabs": {
+      "label": "Acceso",
+      "signIn": "Iniciar sesión",
+      "signUp": "Crear cuenta"
+    },
+    "fields": {
+      "email": "Correo electrónico",
+      "emailPlaceholder": "tu@correo.com",
+      "password": "Contraseña",
+      "newPassword": "Nueva contraseña",
+      "passwordPlaceholder": "Mínimo 8 caracteres",
+      "confirm": "Confirmar contraseña",
+      "confirmPlaceholder": "Repite tu contraseña"
+    },
+    "validation": {
+      "required": "Campo obligatorio",
+      "email": "Correo no válido",
+      "weak": "La contraseña no cumple los requisitos",
+      "mismatch": "Las contraseñas no coinciden"
+    },
+    "requirements": {
+      "title": "Requisitos de la contraseña",
+      "length": "Mínimo 8 caracteres",
+      "letter": "Al menos 1 letra",
+      "number": "Al menos 1 número",
+      "met": "(cumplido)",
+      "pending": "(pendiente)"
+    },
+    "signIn": {
+      "heading": "Bienvenido de nuevo",
+      "subheading": "Entra para ver tus sorteos guardados.",
+      "forgot": "¿La olvidaste?",
+      "submit": "Entrar"
+    },
+    "signUp": {
+      "heading": "Crea tu cuenta",
+      "subheading": "Solo necesitas un correo y una contraseña.",
+      "submit": "Crear cuenta",
+      "duplicate": "No pudimos crear la cuenta con ese correo. ¿Ya tienes cuenta?",
+      "duplicateCta": "Inicia sesión",
+      "migrationNote_one": "El nombre que agregaste en modo prueba se pasará a tu primer sorteo.",
+      "migrationNote_other": "Los {{count}} nombres que agregaste en modo prueba se pasarán a tu primer sorteo.",
+      "firstRaffleNote": "Crearemos tu primer sorteo para que empieces de inmediato.",
+      "migrationFailed": "Tu cuenta está lista, pero no pudimos pasar los nombres del modo prueba. Agrégalos desde Participantes."
+    },
+    "forgot": {
+      "heading": "Recupera tu contraseña",
+      "subheading": "Escribe tu correo y te enviaremos un enlace para crear una nueva.",
+      "submit": "Enviar enlace",
+      "sent": "Si el correo existe, te enviamos un enlace. Revisa tu bandeja de entrada (vence en 60 minutos)."
+    },
+    "reset": {
+      "heading": "Crea una nueva contraseña",
+      "subheading": "Al guardarla se cerrarán tus otras sesiones.",
+      "submit": "Guardar contraseña",
+      "requestAnother": "Pedir otro enlace",
+      "done": "Contraseña actualizada. Ya iniciaste sesión."
+    },
+    "or": "o",
+    "continueAsGuest": "Seguir sin cuenta (modo prueba)",
+    "backToSignIn": "Volver a iniciar sesión",
+    "sessionExpired": "Tu sesión terminó. Inicia sesión de nuevo."
+  },
+  "raffles": {
+    "firstRaffleName": "Mi primer sorteo",
+    "goToMine": "Ir a mis sorteos",
+    "switcher": {
+      "label": "Cambiar de sorteo:",
+      "yourRaffles": "Tus sorteos",
+      "rename": "Renombrar sorteo",
+      "delete": "Eliminar sorteo"
+    },
+    "name": {
+      "label": "Nombre del sorteo",
+      "placeholder": "Ej. Rifa de fin de año",
+      "required": "Ponle un nombre al sorteo",
+      "tooLong_one": "Máximo {{count}} carácter",
+      "tooLong_other": "Máximo {{count}} caracteres"
+    },
+    "create": {
+      "button": "+ Nuevo sorteo",
+      "title": "Nuevo sorteo",
+      "submit": "Crear sorteo",
+      "limit_one": "Llegaste al máximo de {{count}} sorteo",
+      "limit_other": "Llegaste al máximo de {{count}} sorteos"
+    },
+    "rename": {
+      "title": "Renombrar sorteo"
+    },
+    "delete": {
+      "title": "¿Eliminar «{{name}}»?",
+      "description": "Se perderán {{participants}} participantes y {{spins}} giros del historial. Esta acción no se puede deshacer.",
+      "confirm": "Eliminar sorteo",
+      "done": "Sorteo eliminado"
+    },
+    "options": {
+      "label": "Opciones del sorteo",
+      "removeWinner": "Quitar al ganador después de cada giro",
+      "winnerEmail": "Enviar correo al ganador",
+      "winnerEmailHint": "Disponible en una próxima versión",
+      "soon": "Pronto"
+    },
+    "panel": {
+      "manage": "Gestionar participantes",
+      "needTwo": "Necesitas al menos 2 participantes activos",
+      "wheelRegion": "Ruleta"
+    }
+  },
+  "participants": {
+    "title": "Participantes",
+    "add": "Agregar participante",
+    "empty": "Este sorteo aún no tiene participantes. Agrega el primero.",
+    "limit_one": "Llegaste al máximo de {{count}}",
+    "limit_other": "Llegaste al máximo de {{count}}",
+    "summary_one": "{{count}} participante · {{photos}} con foto",
+    "summary_other": "{{count}} participantes · {{photos}} con foto",
+    "needsLastName": "Completa el apellido de este participante.",
+    "needsLastNameShort": "Completa el apellido",
+    "search": {
+      "label": "Buscar participante",
+      "placeholder": "Buscar por nombre o apellido",
+      "noResults": "Ningún participante coincide con la búsqueda."
+    },
+    "table": {
+      "caption": "Participantes del sorteo",
+      "firstName": "Participante",
+      "lastName": "Apellido",
+      "email": "Correo",
+      "noEmail": "Sin correo",
+      "active": "En la ruleta",
+      "activeLabel": "{{name}} en la ruleta",
+      "actions": "Acciones",
+      "edit": "Editar a {{name}}",
+      "delete": "Eliminar a {{name}}"
+    },
+    "active": {
+      "title": "En la ruleta",
+      "count": "{{active}} de {{total}} activos",
+      "empty": "Aún no hay participantes. Agrégalos en «Gestionar participantes»."
+    },
+    "fields": {
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "email": "Correo",
+      "emailPlaceholder": "nombre@correo.com",
+      "emailHint": "Solo se usará para avisarle si gana."
+    },
+    "validation": {
+      "required": "Campo obligatorio",
+      "tooLong": "Máximo 60 caracteres",
+      "email": "Correo no válido"
+    },
+    "editor": {
+      "addTitle": "Agregar participante",
+      "editTitle": "Editar participante",
+      "close": "Cerrar panel",
+      "add": "Guardar participante",
+      "save": "Guardar cambios",
+      "added": "{{name}} quedó en el sorteo",
+      "enterHint": "Pulsa Enter para guardar y seguir agregando."
+    },
+    "photo": {
+      "label": "Foto",
+      "choose": "Elegir foto",
+      "change": "Cambiar foto",
+      "remove": "Quitar",
+      "hint": "JPG, PNG o WebP, hasta 2 MB. También puedes arrastrarla aquí. Se recorta en círculo para la ruleta.",
+      "invalid": "Usa una imagen JPG, PNG o WebP de hasta 2 MB",
+      "uploadFailed": "No pudimos subir la foto. Intenta de nuevo",
+      "cropTitle": "Ajusta el encuadre",
+      "zoom": "Zoom",
+      "useCrop": "Usar esta foto"
+    },
+    "delete": {
+      "title": "¿Eliminar a {{name}}?",
+      "description": "Saldrá del sorteo y de la ruleta. Sus apariciones en el historial se conservan con el nombre original.",
+      "confirm": "Eliminar participante",
+      "done": "Participante eliminado"
+    }
+  },
+  "spins": {
+    "recent": {
+      "title": "Últimos ganadores",
+      "empty": "Aún no hay giros en este sorteo."
+    },
+    "history": {
+      "title": "Historial",
+      "caption": "Giros del sorteo, del más reciente al más antiguo",
+      "round": "Giro",
+      "winner": "Ganador",
+      "date": "Fecha y hora",
+      "pool": "Participantes",
+      "empty": "Aún no hay giros guardados en este sorteo.",
+      "clear": "Limpiar historial",
+      "pagination": "Páginas del historial",
+      "range": "Mostrando {{from}}–{{to}} de {{total}}",
+      "page": "Página {{page}} de {{pages}}",
+      "previous": "Anterior",
+      "next": "Siguiente"
+    },
+    "clearDialog": {
+      "title": "¿Limpiar el historial?",
+      "description_one": "Se borrará {{count}} giro y la próxima ronda volverá a ser 1.",
+      "description_other": "Se borrarán {{count}} giros y la próxima ronda volverá a ser 1.",
+      "confirm": "Limpiar historial",
+      "done": "Historial limpio"
+    }
+  },
+  "account": {
+    "title": "Mi cuenta",
+    "profile": {
+      "title": "Perfil",
+      "email": "Correo",
+      "language": "Idioma",
+      "languageHint": "Se guarda en tu cuenta y se aplica en cualquier dispositivo."
+    },
+    "delete": {
+      "title": "Eliminar cuenta",
+      "text": "Se borrarán tu cuenta, tus sorteos, participantes, historial y fotos. No se puede deshacer.",
+      "button": "Eliminar cuenta",
+      "dialogTitle": "¿Eliminar tu cuenta?",
+      "dialogText": "Para confirmar, escribe {{word}} en el campo de abajo.",
+      "typeLabel": "Escribe {{word}}",
+      "word": "ELIMINAR",
+      "confirm": "Eliminar definitivamente",
+      "done": "Tu cuenta fue eliminada."
+    }
+  },
+  "notFound": {
+    "title": "Esta página no existe.",
+    "cta": "Ir a la ruleta"
+  },
+  "errors": {
+    "generic": "Algo salió mal. Intenta de nuevo.",
+    "supportCode": "Código: {{code}}",
+    "loadFailed": "No pudimos cargar la información.",
+    "renderFailed": "Algo salió mal al mostrar esta pantalla.",
+    "network": {
+      "unavailable": "No hay conexión con el servidor. Revisa tu internet e intenta de nuevo.",
+      "timeout": "El servidor tardó demasiado en responder. Intenta de nuevo."
+    },
+    "field": {
+      "required": "Campo obligatorio",
+      "size": "La longitud no es válida",
+      "format": "El formato no es válido",
+      "range": "El valor está fuera de rango",
+      "invalid": "El valor no es válido"
+    },
+    "request": {
+      "malformed": "La solicitud no es válida.",
+      "not_acceptable": "Formato no disponible."
+    },
+    "password_reset": {
+      "invalid_token": "Este enlace ya no es válido"
+    },
+    "auth": {
+      "unauthenticated": "Inicia sesión para continuar.",
+      "invalid_credentials": "Correo o contraseña incorrectos",
+      "token_expired": "Tu sesión venció. Inicia sesión de nuevo.",
+      "session_revoked": "Tu sesión terminó. Inicia sesión de nuevo.",
+      "csrf_invalid": "La página estuvo inactiva mucho tiempo. Recarga e intenta de nuevo.",
+      "forbidden": "No tienes permiso para hacer esto."
+    },
+    "raffle": {
+      "not_found": "Este sorteo no existe o ya no está disponible.",
+      "limit_reached": "Llegaste al máximo de 50 sorteos.",
+      "concurrent_modification": "Otra pestaña guardó cambios. Recarga para continuar.",
+      "name": {
+        "invalid": "Ponle un nombre al sorteo"
+      }
+    },
+    "participant": {
+      "not_found": "Este participante ya no existe.",
+      "limit_reached": "Llegaste al máximo de 200",
+      "concurrent_modification": "Otra pestaña guardó cambios. Recarga para continuar.",
+      "name": {
+        "invalid": "Nombre y apellido: de 1 a 60 caracteres."
+      }
+    },
+    "spin": {
+      "not_found": "Este giro ya no existe.",
+      "not_enough_participants": "Necesitas al menos 2 participantes activos"
+    },
+    "user": {
+      "email": {
+        "duplicate": "No pudimos crear la cuenta con ese correo. ¿Ya tienes cuenta? Inicia sesión"
+      },
+      "concurrent_modification": "Otra pestaña guardó cambios. Recarga para continuar.",
+      "not_found": "Esta cuenta ya no existe."
+    },
+    "resource": {
+      "not_found": "No encontramos lo que buscas."
+    },
+    "email": {
+      "already_sent": "Este correo ya fue enviado.",
+      "no_recipient": "Este participante no tiene correo."
+    },
+    "file": {
+      "too_large": "Usa una imagen JPG, PNG o WebP de hasta 2 MB",
+      "unsupported_type": "Usa una imagen JPG, PNG o WebP de hasta 2 MB"
+    },
+    "password": {
+      "weak": "La contraseña debe tener mínimo 8 caracteres, con al menos 1 letra y 1 número."
+    },
+    "rate_limit": {
+      "exceeded_one": "Demasiados intentos. Intenta de nuevo en {{count}} minuto",
+      "exceeded_other": "Demasiados intentos. Intenta de nuevo en {{count}} minutos"
+    },
+    "internal": {
+      "error": "Algo salió mal. Intenta de nuevo."
+    },
+    "method": {
+      "not_implemented": "Esta operación no está disponible."
+    },
+    "service": {
+      "unavailable": "El servicio no está disponible en este momento. Intenta en unos minutos."
+    },
+    "admin": {
+      "protected_account": "Las cuentas de administrador no se pueden modificar."
+    }
+  },
+  "admin": {
+    "title": "Administración",
+    "eyebrow": "Panel de la plataforma",
+    "tabs": {
+      "label": "Secciones de administración",
+      "dashboard": "Dashboard",
+      "users": "Usuarios",
+      "raffles": "Sorteos",
+      "spins": "Jugadas y ganadores"
+    },
+    "roles": {
+      "USER": "Usuario",
+      "ADMIN": "Administrador"
+    },
+    "showSpins": "Ver jugadas",
+    "showSpinsFor": "Ver jugadas de {{name}}",
+    "sort": {
+      "hint": "(ordenar)"
+    },
+    "pagination": {
+      "label": "Páginas",
+      "range": "Mostrando {{from}}–{{to}} de {{total}}",
+      "page": "Página {{page}} de {{pages}}",
+      "previous": "Anterior",
+      "next": "Siguiente"
+    },
+    "filters": {
+      "label": "Filtros activos",
+      "owner": "Usuario: {{email}}",
+      "raffle": "Sorteo: {{name}}",
+      "remove": "Quitar filtro {{label}}"
+    },
+    "emailStatus": {
+      "NONE": "—",
+      "SCHEDULED": "Programado",
+      "SENT": "Enviado",
+      "FAILED": "Falló",
+      "NO_EMAIL": "Sin correo",
+      "DISABLED": "Desactivado"
+    },
+    "dashboard": {
+      "kpiTitle": "Indicadores",
+      "kpi": {
+        "users": "Usuarios",
+        "admins": "Administradores",
+        "raffles": "Sorteos",
+        "participants": "Participantes",
+        "spins": "Giros",
+        "spinsLast24h": "Giros últimas 24 h",
+        "pendingEmails": "Correos pendientes"
+      },
+      "activityTitle": "Actividad diaria",
+      "rangeLabel": "Periodo",
+      "rangeDays_one": "{{count}} día",
+      "rangeDays_other": "{{count}} días",
+      "series": {
+        "newUsers": "Nuevos usuarios",
+        "newRaffles": "Nuevos sorteos",
+        "spins": "Giros"
+      },
+      "chartTitle_one": "Actividad del último día",
+      "chartTitle_other": "Actividad de los últimos {{count}} días",
+      "chartDesc": "Totales del periodo: {{users}} usuarios nuevos, {{raffles}} sorteos nuevos y {{spins}} giros. La tabla siguiente tiene el detalle por día.",
+      "tableCaption": "Actividad por día",
+      "day": "Día",
+      "recentTitle": "Últimas jugadas",
+      "recentMeta": "{{raffle}} · {{owner}} · giro {{round}}"
+    },
+    "users": {
+      "caption": "Usuarios registrados",
+      "searchLabel": "Buscar usuario por correo",
+      "searchPlaceholder": "Buscar por correo",
+      "create": "Crear cuenta",
+      "createTitle": "Crear cuenta de usuario",
+      "createSubmit": "Crear cuenta",
+      "editTitle": "Editar cuenta",
+      "language": "Idioma",
+      "newPassword": "Nueva contraseña",
+      "passwordWarning": "Al cambiar la contraseña se cerrarán todas las sesiones de este usuario.",
+      "roleNote": "Las cuentas creadas aquí son siempre de tipo Usuario.",
+      "duplicate": "Ya existe una cuenta con ese correo.",
+      "created": "Cuenta {{email}} creada",
+      "updated": "Cuenta {{email}} actualizada",
+      "deleted": "Cuenta {{email}} eliminada",
+      "edit": "Editar {{email}}",
+      "delete": "Eliminar {{email}}",
+      "deleteTitle": "¿Eliminar la cuenta {{email}}?",
+      "deleteText": "Se borrarán sus {{raffles}} sorteos, {{participants}} participantes, {{spins}} giros del historial y sus fotos. No se puede deshacer.",
+      "deleteType": "Escribe {{email}} para confirmar",
+      "deleteConfirm": "Eliminar cuenta",
+      "protected": "Cuenta protegida",
+      "protectedHint": "Las cuentas de administrador no se pueden editar ni eliminar desde aquí.",
+      "never": "Sin actividad",
+      "empty": "Aún no hay usuarios.",
+      "noResults": "Ningún usuario coincide con la búsqueda.",
+      "columns": {
+        "email": "Correo",
+        "language": "Idioma",
+        "role": "Rol",
+        "created": "Registro",
+        "raffles": "Sorteos",
+        "participants": "Participantes",
+        "spins": "Giros",
+        "lastActivity": "Última actividad",
+        "actions": "Acciones"
+      }
+    },
+    "raffles": {
+      "caption": "Sorteos de todos los usuarios",
+      "searchLabel": "Buscar sorteo",
+      "searchPlaceholder": "Buscar por nombre o correo del dueño",
+      "empty": "No hay sorteos que coincidan.",
+      "filterByOwner": "Filtrar por {{email}}",
+      "columns": {
+        "name": "Sorteo",
+        "owner": "Dueño",
+        "participants": "Participantes",
+        "active": "Activos",
+        "spins": "Giros",
+        "created": "Creado",
+        "updated": "Actualizado"
+      }
+    },
+    "spins": {
+      "caption": "Jugadas y ganadores",
+      "searchLabel": "Buscar jugada",
+      "searchPlaceholder": "Buscar por ganador, sorteo o correo",
+      "empty": "No hay jugadas que coincidan.",
+      "filterByRaffle": "Filtrar por {{name}}",
+      "columns": {
+        "date": "Fecha",
+        "raffle": "Sorteo",
+        "owner": "Dueño",
+        "round": "Ronda",
+        "winner": "Ganador",
+        "pool": "Participantes",
+        "email": "Correo"
+      }
+    }
+  }
+}

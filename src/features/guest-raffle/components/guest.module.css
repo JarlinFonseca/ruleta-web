@@ -1,0 +1,343 @@
+.bannerWrap {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+  padding: 14px 20px;
+  border-radius: var(--radius-banner);
+  background: var(--color-ink-banner);
+  border: 1px solid var(--color-line-gold);
+}
+
+.bannerPill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0 10px;
+  border-radius: var(--radius-pill);
+  background: var(--color-gold-tint);
+  color: var(--color-gold-light);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.bannerText {
+  flex: 1 1 320px;
+  font-size: 0.875rem;
+  color: var(--color-ivory-soft);
+}
+
+.bannerLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target-min);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 56px;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 48px var(--gutter) 72px;
+}
+
+.wheelColumn {
+  flex: 1 1 520px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.heading {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 7vw, 3.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+
+.accent {
+  color: var(--color-gold);
+}
+
+.subtitle {
+  color: var(--color-ivory-muted);
+  font-size: 1rem;
+}
+
+.aside {
+  flex: 0 1 420px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background: var(--color-ink-raised);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  padding: clamp(20px, 5vw, 28px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.count {
+  font-size: 0.875rem;
+  color: var(--color-ivory-muted);
+}
+
+.nameForm {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fieldLabel {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-ivory-soft);
+}
+
+.inputRow {
+  display: flex;
+  gap: 8px;
+}
+
+.nameInput {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: var(--radius-control);
+  background: var(--color-ink);
+  color: var(--color-ivory);
+  border: 1px solid var(--color-line-input);
+  font-size: 0.9375rem;
+}
+
+.nameInput:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 0;
+}
+
+.nameInput[aria-invalid='true'] {
+  border-color: var(--color-danger);
+}
+
+.addButton {
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: var(--radius-control);
+  background: var(--color-ink-control);
+  color: var(--color-ivory);
+  border: 1px solid var(--color-line-input);
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.fieldHint {
+  font-size: 0.75rem;
+  color: var(--color-ivory-faint);
+}
+
+.fieldError {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-danger);
+}
+
+.chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  max-width: 100%;
+  padding: 0 6px 0 8px;
+  border-radius: var(--radius-pill);
+  background: var(--color-ink-chip);
+  border: 1px solid var(--color-line);
+  font-size: 0.875rem;
+}
+
+.chipDot {
+  flex: 0 0 auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgb(243 239 230 / 0.25);
+}
+
+.chipName {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.chipRemove {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 0;
+  background: transparent;
+  color: var(--color-ivory-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chipRemove:hover:not(:disabled) {
+  color: var(--color-ivory);
+  background: var(--color-ink-control);
+}
+
+.spinArea {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.spinButton {
+  min-height: 56px;
+  border-radius: var(--radius-button);
+  border: 0;
+  background: var(--color-gold);
+  color: var(--color-gold-ink);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.spinButton:hover:not(:disabled) {
+  background: var(--color-gold-strong);
+}
+
+.listActions {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.textButton {
+  min-height: var(--target-min);
+  padding: 0 4px;
+  border: 0;
+  background: transparent;
+  color: var(--color-ivory-soft);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.textButton:hover:not(:disabled) {
+  color: var(--color-ivory);
+}
+
+.eyebrowTitle {
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ivory-muted);
+  font-weight: 700;
+}
+
+.muted {
+  font-size: 0.875rem;
+  color: var(--color-ivory-faint);
+}
+
+.historyList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.historyItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9375rem;
+  overflow-wrap: anywhere;
+}
+
+.roundBadge {
+  flex: 0 0 auto;
+  min-width: 28px;
+  height: 28px;
+  padding: 0 4px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgb(212 176 106 / 0.5);
+  color: var(--color-gold);
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fairness {
+  padding: 0 6px;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--color-ivory-faint);
+}
+
+@media (max-width: 640px) {
+  .main {
+    gap: 32px;
+    padding-top: 32px;
+  }
+}

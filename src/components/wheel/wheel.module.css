@@ -1,0 +1,270 @@
+/* Ruleta SVG/CSS de las pantallas 01, 03 y 08: vertical, canto dorado, luces, brillo, centro y flecha. */
+.stage {
+  position: relative;
+  width: min(600px, 100%);
+  aspect-ratio: 1 / 1;
+  margin: 34px auto 30px;
+}
+
+.glow {
+  position: absolute;
+  inset: -14%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgb(212 176 106 / 0.14), rgb(212 176 106 / 0));
+  pointer-events: none;
+}
+
+.floorShadow {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: -9%;
+  height: 10%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgb(0 0 0 / 0.85), rgb(0 0 0 / 0));
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+/* Grosor del canto: el borde inferior del disco. */
+.edge {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  transform: translateY(2.67%);
+  background: var(--metal-edge);
+}
+
+.hit {
+  position: absolute;
+  inset: 0;
+  display: block;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
+}
+
+.hit:hover:not(:disabled) {
+  transform: scale(1.012);
+  filter: brightness(1.06);
+}
+
+.hit:focus-visible {
+  outline: 3px solid var(--color-gold-strong);
+  outline-offset: 10px;
+}
+
+/* El estado deshabilitado no debe apagar la ruleta: solo cambia el cursor. */
+.hit:disabled {
+  opacity: 1;
+}
+
+.rim {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border-radius: 50%;
+  padding: 4.6%;
+  background: var(--metal-rim);
+  box-shadow:
+    var(--shadow-wheel),
+    inset 0 0 0 2px rgb(255 244 214 / 0.6),
+    inset 0 -6px 12px rgb(58 44 18 / 0.6);
+}
+
+.rimInner {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  padding: 1.4%;
+  background: var(--metal-dark);
+  box-shadow: inset 0 3px 6px rgb(0 0 0 / 0.6);
+}
+
+.disc {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #1a1c23;
+}
+
+.rotor {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+  transform: rotate(0deg);
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  paint-order: stroke;
+  stroke: rgb(0 0 0 / 0.35);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+.labelOnGold {
+  stroke: none;
+}
+
+.divider {
+  stroke: rgb(235 211 156 / 0.85);
+  stroke-width: 3;
+}
+
+.avatarRing {
+  fill: var(--color-ink-avatar);
+  stroke: #ebd39c;
+  stroke-width: 4;
+}
+
+.avatarInitialsBg {
+  fill: var(--color-ink);
+  stroke: #ebd39c;
+  stroke-width: 4;
+}
+
+.avatarInitials {
+  fill: var(--color-ivory);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  /* En la mitad inferior: el centro lo ocupa el botón "Girar" (17 % del diámetro). */
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 18% 24%;
+  text-align: center;
+  text-wrap: balance;
+  color: var(--color-ivory-soft);
+  font-size: clamp(0.8rem, 2.6vw, 0.95rem);
+  font-weight: 600;
+}
+
+.bulbTrack {
+  position: absolute;
+  inset: 0;
+  display: block;
+  pointer-events: none;
+}
+
+.bulb {
+  position: absolute;
+  left: 50%;
+  top: 1.15%;
+  width: 1.83%;
+  aspect-ratio: 1 / 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff, #ffe7a8 45%, #c9a35e);
+  box-shadow: 0 0 8px rgb(255 231 168 / 0.9);
+}
+
+.gloss {
+  position: absolute;
+  inset: 6%;
+  display: block;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 50% 18%, rgb(255 255 255 / 0.22), rgb(255 255 255 / 0) 46%),
+    radial-gradient(circle at 50% 50%, rgb(0 0 0 / 0) 62%, rgb(0 0 0 / 0.32) 100%);
+  pointer-events: none;
+}
+
+.hub {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 17%;
+  height: 17%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--metal-hub);
+  box-shadow:
+    0 10px 24px rgb(0 0 0 / 0.55),
+    inset 0 -4px 8px rgb(58 44 18 / 0.5);
+}
+
+.hubFace {
+  width: 72%;
+  height: 72%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 30%, #23262f, var(--color-ink) 75%);
+  box-shadow: inset 0 2px 4px rgb(0 0 0 / 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold-strong);
+  font-family: var(--font-display);
+  font-size: clamp(0.85rem, 3.5vw, 1.3rem);
+  line-height: 1;
+}
+
+.pointer {
+  position: absolute;
+  left: 50%;
+  top: -5.5%;
+  width: 8.67%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 8px 10px rgb(0 0 0 / 0.6));
+  pointer-events: none;
+}
+
+.pointer svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Indicador bajo la flecha (más de 40 participantes): nombre grande y legible del segmento que pasa. */
+.readout {
+  position: absolute;
+  left: 50%;
+  top: 7.5%;
+  transform: translateX(-50%);
+  z-index: 3;
+  max-width: 62%;
+  padding: 0.35em 1em;
+  border: 1px solid var(--color-gold);
+  border-radius: 999px;
+  background: rgb(14 15 19 / 0.88);
+  box-shadow: 0 6px 18px rgb(0 0 0 / 0.55);
+  pointer-events: none;
+}
+
+.readoutText {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--color-ivory);
+  font-size: clamp(0.85rem, 2.4vw, 1.1rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-align: center;
+}

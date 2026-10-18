@@ -1,0 +1,120 @@
+.authStack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.authHeading {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.authTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2rem, 6vw, 2.5rem);
+  line-height: 1.1;
+}
+
+.authSub {
+  color: var(--color-ivory-muted);
+  font-size: 0.9375rem;
+}
+
+.backLink {
+  font-weight: 600;
+  min-height: var(--target-min);
+  display: inline-flex;
+  align-items: center;
+}
+
+.appShell {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  min-height: 100dvh;
+}
+
+.appContent {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 899px) {
+  .appShell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.panelMain {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px clamp(16px, 4vw, 40px);
+}
+
+.wheelSection {
+  flex: 1 1 520px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 16px;
+}
+
+.panelAside {
+  flex: 0 1 380px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.spinButton {
+  min-height: 58px;
+  border-radius: var(--radius-button);
+  border: 0;
+  background: var(--color-gold);
+  color: var(--color-gold-ink);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.spinButton:hover:not(:disabled) {
+  background: var(--color-gold-strong);
+}
+
+.spinHint {
+  margin-top: -10px;
+  font-size: 0.8125rem;
+  color: var(--color-ivory-muted);
+  text-align: center;
+}
+
+.manageLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target-min);
+  padding: 0 16px;
+  border-radius: var(--radius-control);
+  border: 1px solid rgb(243 239 230 / 0.16);
+  color: var(--color-ivory);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.manageLink:hover {
+  color: var(--color-ivory);
+  border-color: var(--color-gold);
+}
+
+@media (max-width: 640px) {
+  .panelMain {
+    gap: 28px;
+    padding-top: 24px;
+  }
+}

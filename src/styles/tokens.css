@@ -1,0 +1,98 @@
+/* Tokens del diseño "Ruleta de sorteos" (pantallas 01 a 08). Fuente única de colores, tipografía y radios. */
+:root {
+  /* Superficies */
+  --color-ink: #0e0f13; /* fondo */
+  --color-ink-deep: #0b0c0f; /* fondo de la revelación del ganador */
+  --color-ink-raised: #15171d; /* tarjetas */
+  --color-ink-sunken: #121419; /* barra lateral, panel izquierdo */
+  --color-ink-banner: #17191f; /* aviso de modo prueba, pestañas */
+  --color-ink-chip: #1d2028; /* chips, navegación activa */
+  --color-ink-control: #23262f; /* botón secundario, idioma activo */
+  --color-ink-avatar: #2a2d36;
+  --color-overlay: rgb(8 9 12 / 0.8);
+
+  /* Líneas */
+  --color-line: rgb(243 239 230 / 0.08);
+  --color-line-soft: rgb(243 239 230 / 0.06);
+  --color-line-input: rgb(243 239 230 / 0.14);
+  --color-line-strong: rgb(243 239 230 / 0.22);
+  --color-line-gold: rgb(212 176 106 / 0.28);
+  --color-line-gold-strong: rgb(212 176 106 / 0.45);
+
+  /* Texto */
+  --color-ivory: #f3efe6;
+  --color-ivory-soft: #c9c3b6;
+  --color-ivory-muted: #a9a396;
+  --color-ivory-faint: #8f897c;
+  --color-placeholder: #8a8577;
+
+  /* Acento */
+  --color-gold: #d4b06a;
+  --color-gold-strong: #ebcf94;
+  --color-gold-light: #e3c384;
+  --color-gold-ink: #16130d;
+  --color-gold-tint: rgb(212 176 106 / 0.14);
+  --color-gold-row: rgb(212 176 106 / 0.08);
+
+  /* Estados */
+  --color-success: #7fb08f;
+  --color-danger: #d98c7a;
+
+  /* Gráficas: categóricos en orden fijo, validados contra la superficie #15171D (CVD ΔE ≥ 9, ≥ 3:1) */
+  --color-chart-1: #3987e5;
+  --color-chart-2: #d95926;
+  --color-chart-3: #199e70;
+
+  /* Segmentos de la ruleta */
+  --color-seg-1: #1e3446;
+  --color-seg-2: #4b2b3e;
+  --color-seg-3: #2b4536;
+  --color-seg-4: #c7a15c;
+  --color-seg-5: #38324f;
+  --color-seg-4-avatar: #5a4a2a; /* tono del dorado para avatares con texto claro */
+
+  /* Metal de la ruleta */
+  --metal-rim: conic-gradient(
+    from 200deg,
+    #f5e2b0,
+    #b8933f 18%,
+    #7a5b1e 32%,
+    #d9bc7a 50%,
+    #f5e2b0 62%,
+    #9c7a3c 78%,
+    #e6cc8e 90%,
+    #f5e2b0
+  );
+  --metal-edge: linear-gradient(180deg, #9c7a3c 0%, #5c4416 55%, #2a1f0c 100%);
+  --metal-hub: radial-gradient(circle at 38% 30%, #fff4d6, #d9bc7a 30%, #9c7a3c 70%, #5c4416);
+  --metal-dark: #2a1f0c;
+
+  /* Tipografía */
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Manrope Variable', 'Manrope', ui-sans-serif, system-ui, sans-serif;
+
+  /* Radios */
+  --radius-card: 22px;
+  --radius-dialog: 28px;
+  --radius-banner: 14px;
+  --radius-button: 14px;
+  --radius-control: 12px;
+  --radius-small: 10px;
+  --radius-pill: 999px;
+
+  /* Sombras */
+  --shadow-dialog: 0 40px 120px rgb(0 0 0 / 0.6);
+  --shadow-wheel: 0 30px 70px rgb(0 0 0 / 0.55);
+
+  /* Medidas */
+  --container-max: 1280px;
+  --gutter: 32px;
+  --target-min: 44px;
+  --focus-ring: 3px solid var(--color-gold-strong);
+}
+
+@media (max-width: 640px) {
+  :root {
+    --gutter: 16px;
+  }
+}

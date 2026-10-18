@@ -1,0 +1,171 @@
+.recent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 4px;
+}
+
+.eyebrowTitle {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ivory-muted);
+  font-weight: 700;
+}
+
+.muted {
+  font-size: 0.875rem;
+  color: var(--color-ivory-faint);
+}
+
+.recentList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.recentItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.875rem;
+}
+
+.recentName {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.round {
+  flex: 0 0 auto;
+  min-width: 22px;
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+.when {
+  flex: 0 0 auto;
+  color: var(--color-ivory-faint);
+  font-size: 0.8125rem;
+}
+
+.page {
+  padding: 36px clamp(16px, 4vw, 40px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.pageHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.raffleName {
+  font-size: 0.8125rem;
+  color: var(--color-ivory-muted);
+  overflow-wrap: anywhere;
+}
+
+.pageTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 6vw, 3rem);
+  line-height: 1;
+}
+
+.headerActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.stateBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 24px;
+  border-radius: 18px;
+  border: 1px dashed var(--color-line-strong);
+  color: var(--color-ivory-soft);
+}
+
+.tableWrap {
+  overflow-x: auto;
+  border-radius: 18px;
+  border: 1px solid var(--color-line);
+  background: var(--color-ink-raised);
+}
+
+.table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.table th {
+  text-align: left;
+  padding: 16px 20px;
+  color: var(--color-ivory-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.table td {
+  padding: 14px 20px;
+  border-top: 1px solid var(--color-line-soft);
+  overflow-wrap: anywhere;
+}
+
+.alignEnd {
+  text-align: right !important;
+}
+
+.roundCell {
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.875rem;
+  color: var(--color-ivory-muted);
+}
+
+.pageButtons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pageInfo {
+  min-width: 90px;
+  text-align: center;
+}

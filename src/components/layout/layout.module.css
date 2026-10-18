@@ -1,0 +1,315 @@
+/* Marca */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--color-ivory);
+  min-height: var(--target-min);
+}
+
+.brand:hover {
+  color: var(--color-ivory);
+}
+
+.brandText {
+  font-family: var(--font-display);
+  font-size: 1.875rem;
+  letter-spacing: 0.01em;
+}
+
+.brandTextCompact {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+}
+
+/* Selector de idioma */
+.langSwitch {
+  display: inline-flex;
+  padding: 2px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgb(243 239 230 / 0.16);
+}
+
+.langButton {
+  min-width: 44px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+  border: 0;
+  background: transparent;
+  color: var(--color-ivory-muted);
+  font-weight: 700;
+  font-size: 0.8125rem;
+}
+
+.langButton[aria-pressed='true'] {
+  background: var(--color-ink-control);
+  color: var(--color-ivory);
+}
+
+.langButton:hover {
+  color: var(--color-ivory);
+}
+
+/* Cabecera pública */
+.siteHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 24px var(--gutter);
+}
+
+.siteNav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.pillLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target-min);
+  padding: 0 18px;
+  border-radius: var(--radius-pill);
+  color: var(--color-ivory);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.pillLink:hover {
+  color: var(--color-gold-strong);
+}
+
+.pillPrimary {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target-min);
+  padding: 0 22px;
+  border-radius: var(--radius-pill);
+  background: var(--color-gold);
+  color: var(--color-gold-ink);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9375rem;
+}
+
+.pillPrimary:hover {
+  background: var(--color-gold-strong);
+  color: var(--color-gold-ink);
+}
+
+/* Barra lateral de la aplicación */
+.sidebar {
+  background: var(--color-ink-sunken);
+  border-right: 1px solid var(--color-line-soft);
+  padding: 28px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  min-height: 100dvh;
+  position: sticky;
+  top: 0;
+}
+
+.sidebar > a:first-child {
+  padding: 0 10px;
+}
+
+.sideLinks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sideLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: var(--target-min);
+  padding: 0 12px;
+  border-radius: var(--radius-control);
+  color: var(--color-ivory-soft);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.sideLink:hover {
+  color: var(--color-ivory);
+  background: rgb(29 32 40 / 0.6);
+}
+
+.sideLinkActive {
+  background: var(--color-ink-chip);
+  color: var(--color-ivory);
+}
+
+.sideLinkActive svg {
+  stroke: var(--color-gold);
+}
+
+.accountCard {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px;
+  border-radius: var(--radius-banner);
+  background: var(--color-ink-banner);
+}
+
+.accountLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px;
+  border-radius: var(--radius-control);
+  text-decoration: none;
+  color: var(--color-ivory);
+  min-width: 0;
+}
+
+.accountLink:hover {
+  color: var(--color-ivory);
+  background: var(--color-ink-chip);
+}
+
+.accountAvatar {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-seg-3);
+  color: var(--color-ivory);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.accountText {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.accountTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.accountEmail {
+  font-size: 0.75rem;
+  color: var(--color-ivory-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.logout {
+  min-height: var(--target-min);
+  border: 0;
+  border-radius: var(--radius-control);
+  background: transparent;
+  color: var(--color-ivory-soft);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-align: left;
+  padding: 0 12px;
+}
+
+.logout:hover:not(:disabled) {
+  color: var(--color-ivory);
+  background: var(--color-ink-chip);
+}
+
+@media (max-width: 899px) {
+  .sidebar {
+    position: static;
+    min-height: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 16px;
+    padding: 12px var(--gutter);
+    border-right: 0;
+    border-bottom: 1px solid var(--color-line-soft);
+  }
+
+  .sidebar > a:first-child {
+    padding: 0;
+  }
+
+  .sideLinks {
+    flex-direction: row;
+    flex-wrap: wrap;
+    order: 3;
+    width: 100%;
+  }
+
+  .accountCard {
+    margin-top: 0;
+    margin-left: auto;
+    flex-direction: row;
+    align-items: center;
+    padding: 4px;
+    background: transparent;
+  }
+
+  .accountText {
+    display: none;
+  }
+}
+
+/* Indicador de guardado */
+.saveStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  color: var(--color-ivory-muted);
+}
+
+.saveDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-success);
+}
+
+.saveDot_saving {
+  background: var(--color-gold);
+}
+
+.saveDot_error {
+  background: var(--color-danger);
+}
+
+.saveDot_saved {
+  background: var(--color-success);
+}
+
+/* Etiqueta del rol ADMIN en la tarjeta de cuenta (rol asignado en la base). */
+.adminBadge {
+  display: inline-block;
+  margin-top: 0.25rem;
+  padding: 0.1rem 0.5rem;
+  border: 1px solid var(--color-gold);
+  border-radius: 999px;
+  color: var(--color-gold);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  width: fit-content;
+}

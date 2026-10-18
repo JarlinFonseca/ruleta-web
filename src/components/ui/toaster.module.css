@@ -1,0 +1,62 @@
+.viewport {
+  position: fixed;
+  z-index: 60;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: min(420px, 100%);
+  padding: 14px 10px 14px 18px;
+  border-radius: var(--radius-banner);
+  background: var(--color-ink-banner);
+  border: 1px solid var(--color-line-strong);
+  box-shadow: 0 20px 50px rgb(0 0 0 / 0.5);
+}
+
+.error {
+  border-color: rgb(217 140 122 / 0.6);
+}
+
+.success {
+  border-color: rgb(127 176 143 / 0.6);
+}
+
+.message {
+  flex: 1;
+  font-size: 0.875rem;
+  color: var(--color-ivory);
+  padding-top: 2px;
+}
+
+.code {
+  color: var(--color-ivory-muted);
+  white-space: nowrap;
+}
+
+.close {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-ivory-muted);
+}
+
+.close:hover {
+  color: var(--color-ivory);
+}
