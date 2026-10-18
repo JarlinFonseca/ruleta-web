@@ -15,7 +15,7 @@ describe('fetchCurrentSession', () => {
 
   it('con la cookie indicadora consulta /sessions/current', async () => {
     document.cookie = `${SESSION_HINT_COOKIE}=1; path=/`;
-    const fetchMock = vi.fn(async () =>
+    const fetchMock = vi.fn<typeof fetch>(async () =>
       new Response(
         JSON.stringify({
           data: { user: { id: '7', email: 'ana@correo.com', language: 'en', lastRaffleId: null, role: 'USER' } },
