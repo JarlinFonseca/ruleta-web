@@ -27,6 +27,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* El brillo y las luces de la ruleta sobresalen del disco: en móvil generaban scroll horizontal.
+   Va en #root y no en body (en body se propaga al viewport y no recorta). "clip" no crea contenedor
+   de scroll, así que no rompe position: sticky. */
+#root {
+  overflow-x: clip;
+}
+
 h1,
 h2,
 h3,

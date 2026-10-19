@@ -15,13 +15,22 @@ describe('fetchCurrentSession', () => {
 
   it('con la cookie indicadora consulta /sessions/current', async () => {
     document.cookie = `${SESSION_HINT_COOKIE}=1; path=/`;
-    const fetchMock = vi.fn(async (_input: RequestInfo | URL, _init?: RequestInit) =>
-      new Response(
-        JSON.stringify({
-          data: { user: { id: '7', email: 'ana@correo.com', language: 'en', lastRaffleId: null, role: 'USER' } },
-        }),
-        { status: 200 },
-      ),
+    const fetchMock = vi.fn(
+      async (_input: RequestInfo | URL, _init?: RequestInit) =>
+        new Response(
+          JSON.stringify({
+            data: {
+              user: {
+                id: '7',
+                email: 'ana@correo.com',
+                language: 'en',
+                lastRaffleId: null,
+                role: 'USER',
+              },
+            },
+          }),
+          { status: 200 },
+        ),
     );
     vi.stubGlobal('fetch', fetchMock);
     await expect(fetchCurrentSession()).resolves.toMatchObject({ id: '7', role: 'USER' });

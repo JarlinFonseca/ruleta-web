@@ -85,6 +85,16 @@ describe('cliente HTTP', () => {
     expect(result.data).toBeUndefined();
   });
 
+  it('202 sin cuerpo cuenta como éxito; con esquema esperado sigue siendo error de contrato', async () => {
+    mockFetch(() => new Response(null, { status: 202 }));
+    const result = await apiRequest('/spins/1/email-deliveries', { method: 'POST' });
+    expect(result.status).toBe(202);
+    expect(result.data).toBeUndefined();
+    await expect(
+      apiRequest('/raffles/1', { schema: z.object({ id: z.string() }) }),
+    ).rejects.toBeInstanceOf(ContractError);
+  });
+
   it('lanza ContractError si la respuesta no cumple el esquema', async () => {
     mockFetch(() => json(200, { data: { id: 5 } }));
     await expect(

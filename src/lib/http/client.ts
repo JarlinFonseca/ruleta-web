@@ -186,6 +186,10 @@ async function execute<T>(
   }
 
   const json = await readJson(res);
+  // 2xx sin cuerpo (p. ej. un 202 de proxy): equivale a "sin contenido" si no se espera un esquema.
+  if (res.ok && json === null && !o.schema) {
+    return { data: undefined as T, paging: undefined, status: res.status, location };
+  }
   const envelope = envelopeSchema.safeParse(json);
 
   if (!res.ok) {
