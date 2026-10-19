@@ -18,6 +18,8 @@ export type WinnerDialogProps = {
   /** El ganador ya no está en la ruleta (quitado a mano o automáticamente, RN-06). */
   removed: boolean;
   removing?: boolean;
+  /** HU-25: estado del correo al ganador (null = el sorteo no envía correos o es modo prueba). */
+  emailNote?: string | null;
 };
 
 /** Revelación del ganador (HU-19, pantallas 01, 03 y 05). */
@@ -33,6 +35,7 @@ export function WinnerDialog({
   onRemove,
   removed,
   removing = false,
+  emailNote = null,
 }: WinnerDialogProps) {
   const { t } = useTranslation();
 
@@ -58,6 +61,7 @@ export function WinnerDialog({
             {t('winner.pool', { count: poolSize })}
             {saved ? ` ${t('winner.saved')}` : ''}
           </p>
+          {emailNote ? <p className={styles.email}>{emailNote}</p> : null}
           {removed ? <p className={styles.removed}>{t('winner.removedNote')}</p> : null}
           <div className={styles.actions}>
             <Button variant="primary" size="md" onClick={onSpinAgain}>

@@ -42,6 +42,7 @@ export function AppLayout() {
       <AppSidebar
         raffleId={raffleId}
         email={user.email}
+        photoUrl={user.photoUrl}
         isAdmin={user.role === 'ADMIN'}
         onLogout={() => void logout()}
         loggingOut={loggingOut}

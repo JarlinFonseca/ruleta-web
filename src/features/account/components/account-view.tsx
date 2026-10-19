@@ -4,10 +4,13 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { ConfirmDialog } from '@/components/ui/confirm-dialog';
 import { LanguageSwitch } from '@/components/layout/language-switch';
+import { PhotoField } from '@/features/participants/components/photo-field';
 import { useErrorHandler } from '@/hooks/use-error-handler';
 import { useGuestListStore } from '@/lib/guest/guest-list-store';
 import { apiRequest } from '@/lib/http/client';
 import type { SessionUser } from '@/lib/session/session';
+import { toast } from '@/lib/toast/toast-store';
+import { useRemoveProfilePhoto, useUploadProfilePhoto } from '../api/profile-photo';
 import styles from './account.module.css';
 
 type AccountViewProps = {
@@ -16,7 +19,7 @@ type AccountViewProps = {
   onDeleted: () => void;
 };
 
-/** Mi cuenta: idioma guardado (HU-28), cerrar sesión (HU-08) y eliminar cuenta (HU-10). */
+/** Mi cuenta: foto de perfil, idioma guardado (HU-28), cerrar sesión (HU-08) y eliminar cuenta (HU-10). */
 export function AccountView({ user, onSignOut, onDeleted }: AccountViewProps) {
   const { t } = useTranslation();
   const { notify } = useErrorHandler();
@@ -27,6 +30,9 @@ export function AccountView({ user, onSignOut, onDeleted }: AccountViewProps) {
     },
   });
   const word = t('account.delete.word');
+  const uploadPhoto = useUploadProfilePhoto();
+  const removePhoto = useRemoveProfilePhoto();
+  const photoBusy = uploadPhoto.isPending || removePhoto.isPending;
 
   return (
     <main id="contenido" className={styles.page}>
@@ -36,6 +42,31 @@ export function AccountView({ user, onSignOut, onDeleted }: AccountViewProps) {
         <h2 id="account-profile" className={styles.cardTitle}>
           {t('account.profile.title')}
         </h2>
+        <PhotoField
+          label={t('account.photo.label')}
+          hint={t('account.photo.hint')}
+          optional={false}
+          previewUrl={user.photoUrl}
+          initials={user.email.slice(0, 2).toLocaleUpperCase()}
+          disabled={photoBusy}
+          onCropped={(blob) =>
+            uploadPhoto.mutate(blob, {
+              onSuccess: () => toast.success(t('account.photo.saved')),
+              onError: (e) => notify(e, 'participants.photo.uploadFailed'),
+            })
+          }
+          onRemove={() =>
+            removePhoto.mutate(undefined, {
+              onSuccess: () => toast.success(t('account.photo.removed')),
+              onError: (e) => notify(e),
+            })
+          }
+        />
+        {photoBusy ? (
+          <p className={styles.hint} role="status">
+            {t('common.working')}
+          </p>
+        ) : null}
         <dl className={styles.list}>
           <div>
             <dt>{t('account.profile.email')}</dt>

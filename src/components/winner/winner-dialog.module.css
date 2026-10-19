@@ -84,6 +84,12 @@
   font-size: 0.9375rem;
 }
 
+.email {
+  color: var(--color-ivory-soft);
+  font-size: 0.875rem;
+  overflow-wrap: anywhere;
+}
+
 .removed {
   color: var(--color-success);
   font-size: 0.875rem;

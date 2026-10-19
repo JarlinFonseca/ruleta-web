@@ -7,6 +7,7 @@ import styles from './layout.module.css';
 type AppSidebarProps = {
   raffleId: string | null;
   email: string;
+  photoUrl?: string | null;
   isAdmin?: boolean;
   onLogout: () => void;
   loggingOut: boolean;
@@ -76,6 +77,7 @@ const icons = {
 export function AppSidebar({
   raffleId,
   email,
+  photoUrl = null,
   isAdmin = false,
   onLogout,
   loggingOut,
@@ -113,7 +115,7 @@ export function AppSidebar({
           className={({ isActive }) => cn(styles.accountLink, isActive && styles.sideLinkActive)}
         >
           <span className={styles.accountAvatar} aria-hidden="true">
-            {email.slice(0, 2).toLocaleUpperCase()}
+            {photoUrl ? <img src={photoUrl} alt="" /> : email.slice(0, 2).toLocaleUpperCase()}
           </span>
           <span className={styles.accountText}>
             <span className={styles.accountTitle}>{t('nav.account')}</span>

@@ -2,7 +2,16 @@ import { http, HttpResponse, type JsonBodyType } from 'msw';
 import { env } from '@/config/env';
 import { fairIndex } from '@/lib/random/fair-index';
 import { adminHandlers } from './admin-handlers';
-import { db, nextId, persist, type MockParticipant, type MockRaffle, type MockUser } from './db';
+import {
+  db,
+  nextId,
+  persist,
+  type EmailStatus,
+  type MockParticipant,
+  type MockRaffle,
+  type MockSpin,
+  type MockUser,
+} from './db';
 
 const base = env.apiBaseUrl;
 const offset = '-05:00';
@@ -39,7 +48,35 @@ const userDto = (u: MockUser) => ({
   language: u.language,
   lastRaffleId: u.lastRaffleId,
   role: u.role ?? 'USER',
+  photoUrl: u.photoUrl ?? null,
 });
+
+/** Simula la cola de correo: un correo programado se da por enviado a los 3 s (FAILED si el dominio es "falla"). */
+const MOCK_SEND_MS = 3000;
+function settleEmail(s: MockSpin): EmailStatus {
+  if (
+    s.emailStatus === 'SCHEDULED' &&
+    s.scheduledAt &&
+    Date.now() - s.scheduledAt >= MOCK_SEND_MS
+  ) {
+    const winner = db.participants.find((p) => p.id === s.winnerId);
+    s.emailStatus = winner?.email?.endsWith('@falla.test') ? 'FAILED' : 'SENT';
+    persist();
+  }
+  return s.emailStatus ?? 'DISABLED';
+}
+
+const maskEmail = (email: string) => {
+  const [local = '', domain = ''] = email.split('@');
+  return `${local.slice(0, 1)}***@${domain}`;
+};
+
+async function fileToDataUrl(file: Blob): Promise<string> {
+  const bytes = new Uint8Array(await file.arrayBuffer());
+  let binary = '';
+  bytes.forEach((b) => (binary += String.fromCharCode(b)));
+  return `data:${file.type || 'image/jpeg'};base64,${btoa(binary)}`;
+}
 const date = (iso: string) => ({ date: iso, utcOffset: offset });
 
 function raffleDto(r: MockRaffle) {
@@ -48,8 +85,8 @@ function raffleDto(r: MockRaffle) {
     id: r.id,
     name: r.name,
     removeWinnerAfterSpin: r.removeWinnerAfterSpin,
-    sendWinnerEmail: false,
-    emailLanguage: 'es',
+    sendWinnerEmail: r.sendWinnerEmail ?? false,
+    emailLanguage: r.emailLanguage ?? 'es',
     participantCount: ps.length,
     activeCount: ps.filter((p) => p.active).length,
     spinCount: db.spins.filter((s) => s.raffleId === r.id).length,
@@ -107,7 +144,6 @@ const touch = (r: MockRaffle) => {
 
 type Body = Record<string, unknown>;
 const str = (v: unknown) => (typeof v === 'string' ? v.trim() : '');
-
 
 /** Igual que la API real: cookie indicadora legible (sin secretos) mientras hay sesión. */
 function setSessionHint(active: boolean): void {
@@ -282,6 +318,9 @@ export const handlers = [
     }
     if (typeof body.removeWinnerAfterSpin === 'boolean')
       raffle.removeWinnerAfterSpin = body.removeWinnerAfterSpin;
+    if (typeof body.sendWinnerEmail === 'boolean') raffle.sendWinnerEmail = body.sendWinnerEmail;
+    if (body.emailLanguage === 'es' || body.emailLanguage === 'en')
+      raffle.emailLanguage = body.emailLanguage;
     touch(raffle);
     persist();
     return ok(raffleDto(raffle));
@@ -368,12 +407,28 @@ export const handlers = [
     const file = form.get('file');
     if (!(file instanceof Blob)) return fail(400, 'field.required', 'file');
     if (file.size > 2 * 1024 * 1024) return fail(413, 'file.too_large');
-    const bytes = new Uint8Array(await file.arrayBuffer());
-    let binary = '';
-    bytes.forEach((b) => (binary += String.fromCharCode(b)));
-    p.photoUrl = `data:${file.type || 'image/jpeg'};base64,${btoa(binary)}`;
+    p.photoUrl = await fileToDataUrl(file);
     persist();
     return ok(participantDto(p));
+  }),
+
+  http.put(`${base}/users/me/photo`, async ({ request }) => {
+    const user = currentUser();
+    if (!user) return fail(401, 'auth.unauthenticated');
+    const file = (await request.formData()).get('file');
+    if (!(file instanceof Blob)) return fail(400, 'field.required', 'file');
+    if (file.size > 2 * 1024 * 1024) return fail(413, 'file.too_large');
+    user.photoUrl = await fileToDataUrl(file);
+    persist();
+    return ok(userDto(user));
+  }),
+
+  http.delete(`${base}/users/me/photo`, () => {
+    const user = currentUser();
+    if (!user) return fail(401, 'auth.unauthenticated');
+    user.photoUrl = null;
+    persist();
+    return noContent();
   }),
 
   http.delete(`${base}/participants/:id/photo`, ({ params }) => {
@@ -397,13 +452,20 @@ export const handlers = [
       db.spins.filter((s) => s.raffleId === raffle.id).reduce((m, s) => Math.max(m, s.round), 0) +
       1;
     const createdAt = new Date().toISOString();
-    const spin = {
+    const emailStatus: EmailStatus = !raffle.sendWinnerEmail
+      ? 'DISABLED'
+      : winner.email
+        ? 'SCHEDULED'
+        : 'NO_EMAIL';
+    const spin: MockSpin = {
       id: nextId(),
       raffleId: raffle.id,
       round,
       winnerId: winner.id,
       winnerName: `${winner.firstName} ${winner.lastName}`.trim(),
       poolSize: pool.length,
+      emailStatus,
+      ...(emailStatus === 'SCHEDULED' ? { scheduledAt: Date.now() } : {}),
       createdAt,
     };
     db.spins.push(spin);
@@ -415,8 +477,8 @@ export const handlers = [
         round,
         winner: participantDto(winner),
         poolSize: pool.length,
-        emailStatus: 'DISABLED',
-        maskedEmail: null,
+        emailStatus,
+        maskedEmail: emailStatus === 'SCHEDULED' && winner.email ? maskEmail(winner.email) : null,
         winnerRemoved: raffle.removeWinnerAfterSpin,
         creationDate: date(createdAt),
       },
@@ -436,10 +498,23 @@ export const handlers = [
         winnerName: s.winnerName,
         winnerId: s.winnerId,
         poolSize: s.poolSize,
-        emailStatus: 'DISABLED',
+        emailStatus: settleEmail(s),
         creationDate: date(s.createdAt),
       }));
     return page(new URL(request.url), list);
+  }),
+
+  http.post(`${base}/spins/:id/email-deliveries`, ({ params }) => {
+    const spin = db.spins.find((s) => s.id === params.id && ownRaffle(s.raffleId));
+    if (!spin) return fail(404, 'spin.not_found');
+    const status = settleEmail(spin);
+    if (status === 'SENT' || status === 'SCHEDULED') return fail(409, 'email.already_sent');
+    const winner = db.participants.find((p) => p.id === spin.winnerId);
+    if (!winner?.email) return fail(409, 'email.no_recipient');
+    spin.emailStatus = 'SCHEDULED';
+    spin.scheduledAt = Date.now();
+    persist();
+    return new HttpResponse(null, { status: 202 });
   }),
 
   http.delete(`${base}/raffles/:id/spins`, ({ params }) => {

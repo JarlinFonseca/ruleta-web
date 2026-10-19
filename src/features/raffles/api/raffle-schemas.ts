@@ -11,7 +11,7 @@ export const raffleSchema = z
     id: idSchema,
     name: z.string(),
     removeWinnerAfterSpin: z.boolean().default(false),
-    // R2 (HU-24, HU-29): se leen si llegan, pero el MVP no los edita.
+    /** HU-24/HU-29: correo al ganador y su idioma (independiente del idioma de la interfaz). */
     sendWinnerEmail: z.boolean().optional(),
     emailLanguage: z.string().optional(),
     participantCount: z.number().int().optional(),

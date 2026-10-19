@@ -5,6 +5,12 @@ const booleanFlag = z
   .optional()
   .transform((v) => v === 'true');
 
+/** Encendida salvo que se apague explícitamente con "false". */
+const defaultOnFlag = z
+  .enum(['true', 'false', ''])
+  .optional()
+  .transform((v) => v !== 'false');
+
 const envSchema = z.object({
   VITE_API_BASE_URL: z
     .string()
@@ -12,7 +18,7 @@ const envSchema = z.object({
     .transform((v) => (v && v.trim() !== '' ? v.replace(/\/$/, '') : '/api-ruleta/v1')),
   VITE_ENABLE_MSW: booleanFlag,
   VITE_ENABLE_WHEEL_3D: booleanFlag,
-  VITE_ENABLE_PARTICIPANT_EMAIL: booleanFlag,
+  VITE_ENABLE_PARTICIPANT_EMAIL: defaultOnFlag,
   VITE_ERROR_REPORTING_URL: z
     .union([z.literal(''), z.url()])
     .optional()

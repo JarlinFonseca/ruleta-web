@@ -55,13 +55,18 @@ export function useCreateRaffle() {
   });
 }
 
-export type RafflePatch = Partial<Pick<Raffle, 'name' | 'removeWinnerAfterSpin'>>;
+export type RafflePatch = Partial<
+  Pick<Raffle, 'name' | 'removeWinnerAfterSpin' | 'sendWinnerEmail' | 'emailLanguage'>
+>;
 
 /** HU-12, HU-16 (opción), RF-24: cada cambio se guarda al instante. */
 export function useUpdateRaffle(raffleId: string) {
   const queryClient = useQueryClient();
   return useMutation({
     mutationKey: [...saveMutationKey(raffleId), 'raffle'],
+    // Uno tras otro: cada PATCH lleva la versión que devolvió el anterior. En paralelo, dos cambios
+    // rápidos (activar el correo y elegir el idioma) salían con la misma versión y el segundo daba 409.
+    scope: { id: `raffle-update-${raffleId}` },
     mutationFn: async (patch: RafflePatch) => {
       const current = queryClient.getQueryData<Raffle>(raffleKeys.detail(raffleId));
       const body = current?.version !== undefined ? { ...patch, version: current.version } : patch;

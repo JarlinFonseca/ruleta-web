@@ -19,6 +19,12 @@ export const sessionUserSchema = z.object({
   lastRaffleId: idSchema.nullable().default(null),
   /** Rol ADMIN: se asigna solo en la base de datos (base para funciones de administración futuras). */
   role: z.enum(['USER', 'ADMIN']).catch('USER').default('USER'),
+  /** Foto de perfil ("Mi cuenta"); null = iniciales. */
+  photoUrl: z
+    .string()
+    .nullable()
+    .optional()
+    .transform((v) => v ?? null),
 });
 export type SessionUser = z.infer<typeof sessionUserSchema>;
 

@@ -1,3 +1,4 @@
+import type { TFunction } from 'i18next';
 import { useQueryClient } from '@tanstack/react-query';
 import { useEffect, useMemo, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -199,6 +200,7 @@ function RafflePanel({ raffleId }: { raffleId: string }) {
           saved
           removed={winnerRemoved}
           removing={setActive.isPending}
+          emailNote={winnerEmailNote(reveal.emailStatus, reveal.maskedEmail, t)}
           onSpinAgain={() => {
             server.close();
             void server.spin();
@@ -268,4 +270,26 @@ export function AccountRoute() {
       }}
     />
   );
+}
+
+/** HU-25: qué pasó con el correo al ganador, según el estado que devolvió el giro. */
+function winnerEmailNote(
+  status: string | null | undefined,
+  maskedEmail: string | null | undefined,
+  t: TFunction,
+): string | null {
+  switch (status) {
+    case 'SCHEDULED':
+      return maskedEmail
+        ? t('winner.email.scheduledTo', { email: maskedEmail })
+        : t('winner.email.scheduled');
+    case 'SENT':
+      return t('winner.email.sent');
+    case 'NO_EMAIL':
+      return t('winner.email.noEmail');
+    case 'FAILED':
+      return t('winner.email.failed');
+    default:
+      return null;
+  }
 }

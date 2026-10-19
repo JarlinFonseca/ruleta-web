@@ -61,7 +61,14 @@
     "spinAgain": "Spin again",
     "remove": "Remove from the wheel",
     "removedNote": "No longer on the wheel.",
-    "photoAlt": "Photo of {{name}}"
+    "photoAlt": "Photo of {{name}}",
+    "email": {
+      "scheduled": "We'll email them the result.",
+      "scheduledTo": "We'll email them at {{email}}.",
+      "sent": "We emailed them the result.",
+      "noEmail": "No email on file: no notice was sent.",
+      "failed": "We couldn't email them. You can retry from the history."
+    }
   },
   "guest": {
     "banner": {
@@ -217,8 +224,12 @@
       "label": "Raffle options",
       "removeWinner": "Remove the winner after each spin",
       "winnerEmail": "Email the winner",
-      "winnerEmailHint": "Available in an upcoming version",
-      "soon": "Soon"
+      "winnerEmailHint": "Only sent to participants who have an email.",
+      "emailLanguage": "Email language",
+      "languages": {
+        "es": "Spanish",
+        "en": "English"
+      }
     },
     "panel": {
       "manage": "Manage participants",
@@ -316,7 +327,20 @@
       "range": "Showing {{from}}–{{to}} of {{total}}",
       "page": "Page {{page}} of {{pages}}",
       "previous": "Previous",
-      "next": "Next"
+      "next": "Next",
+      "email": "Email",
+      "emailStatus": {
+        "NONE": "—",
+        "SCHEDULED": "Scheduled",
+        "SENT": "Sent",
+        "FAILED": "Failed",
+        "NO_EMAIL": "No email",
+        "DISABLED": "Not sent"
+      },
+      "resend": "Retry",
+      "send": "Send",
+      "resendFor": "Send the email to {{name}}",
+      "resendDone": "Email queued for delivery."
     },
     "clearDialog": {
       "title": "Clear the history?",
@@ -344,6 +368,12 @@
       "word": "DELETE",
       "confirm": "Delete permanently",
       "done": "Your account was deleted."
+    },
+    "photo": {
+      "label": "Profile photo",
+      "hint": "JPG, PNG or WebP, up to 2 MB. You can also drag it here. It is saved once you crop it.",
+      "saved": "Profile photo updated.",
+      "removed": "Your profile photo was removed."
     }
   },
   "notFound": {

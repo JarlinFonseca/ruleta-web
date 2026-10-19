@@ -9,6 +9,7 @@ export type MockUser = {
   language: 'es' | 'en';
   lastRaffleId: string | null;
   role?: 'USER' | 'ADMIN';
+  photoUrl?: string | null;
   createdAt?: string;
 };
 export type MockRaffle = {
@@ -16,6 +17,8 @@ export type MockRaffle = {
   ownerId: string;
   name: string;
   removeWinnerAfterSpin: boolean;
+  sendWinnerEmail?: boolean;
+  emailLanguage?: 'es' | 'en';
   version: number;
   createdAt: string;
   updatedAt: string;
@@ -38,8 +41,12 @@ export type MockSpin = {
   winnerId: string;
   winnerName: string;
   poolSize: number;
+  emailStatus?: EmailStatus;
+  /** Cuándo se programó el correo: el mock lo da por enviado a los pocos segundos. */
+  scheduledAt?: number;
   createdAt: string;
 };
+export type EmailStatus = 'SCHEDULED' | 'SENT' | 'FAILED' | 'NO_EMAIL' | 'DISABLED';
 
 type Db = {
   seq: number;

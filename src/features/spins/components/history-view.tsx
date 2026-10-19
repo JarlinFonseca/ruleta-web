@@ -6,12 +6,24 @@ import { useErrorHandler } from '@/hooks/use-error-handler';
 import { formatDateTime, formatNumber } from '@/lib/i18n/format';
 import { currentLanguage } from '@/lib/i18n/i18n';
 import { toast } from '@/lib/toast/toast-store';
-import { HISTORY_PAGE_SIZE, useClearHistory, useSpinsPage } from '../api/spin-queries';
+import {
+  HISTORY_PAGE_SIZE,
+  useClearHistory,
+  useResendWinnerEmail,
+  useSpinsPage,
+} from '../api/spin-queries';
+import type { SpinHistoryItem } from '../api/spin-schemas';
 import styles from './spins.module.css';
 
 type HistoryViewProps = { raffleId: string; raffleName: string; headerActions?: ReactNode };
 
-/** HU-21: historial completo, paginado de 20 en 20, y limpiar historial. */
+/** Estados en los que se puede pedir el correo: falló, o no se envió y el ganador sigue en el sorteo. */
+function canSendEmail(s: SpinHistoryItem): boolean {
+  if (s.emailStatus === 'FAILED') return true;
+  return (s.emailStatus === 'NO_EMAIL' || s.emailStatus === 'DISABLED') && Boolean(s.winnerId);
+}
+
+/** HU-21: historial completo, paginado de 20 en 20, y limpiar historial. HU-26: estado y reenvío del correo. */
 export function HistoryView({ raffleId, raffleName, headerActions }: HistoryViewProps) {
   const { t, i18n } = useTranslation();
   const lang = currentLanguage(i18n);
@@ -20,6 +32,11 @@ export function HistoryView({ raffleId, raffleName, headerActions }: HistoryView
   const [confirmClear, setConfirmClear] = useState(false);
   const { data, isPending, error, refetch, isPlaceholderData } = useSpinsPage(raffleId, page);
   const clear = useClearHistory(raffleId);
+  const resend = useResendWinnerEmail(raffleId);
+  const emailLabel = (status: string | null | undefined) => {
+    const key = `spins.history.emailStatus.${status ?? 'NONE'}`;
+    return i18n.exists(key) ? t(key) : (status ?? t('spins.history.emailStatus.NONE'));
+  };
 
   const total = data?.total ?? 0;
   const pages = Math.max(1, Math.ceil(total / HISTORY_PAGE_SIZE));
@@ -65,6 +82,7 @@ export function HistoryView({ raffleId, raffleName, headerActions }: HistoryView
                   <th scope="col" className={styles.alignEnd}>
                     {t('spins.history.pool')}
                   </th>
+                  <th scope="col">{t('spins.history.email')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -78,6 +96,33 @@ export function HistoryView({ raffleId, raffleName, headerActions }: HistoryView
                       </time>
                     </td>
                     <td className={styles.alignEnd}>{formatNumber(s.poolSize, lang)}</td>
+                    <td>
+                      <span className={styles.emailCell}>
+                        <span className={styles.emailStatus} data-status={s.emailStatus ?? 'NONE'}>
+                          {emailLabel(s.emailStatus)}
+                        </span>
+                        {canSendEmail(s) ? (
+                          <Button
+                            variant="ghost"
+                            className={styles.resendButton}
+                            disabled={resend.isPending && resend.variables === s.id}
+                            aria-label={t('spins.history.resendFor', { name: s.winnerName })}
+                            onClick={() =>
+                              resend.mutate(s.id, {
+                                onSuccess: () => toast.success(t('spins.history.resendDone')),
+                                onError: (e) => notify(e),
+                              })
+                            }
+                          >
+                            {resend.isPending && resend.variables === s.id
+                              ? t('common.working')
+                              : s.emailStatus === 'FAILED'
+                                ? t('spins.history.resend')
+                                : t('spins.history.send')}
+                          </Button>
+                        ) : null}
+                      </span>
+                    </td>
                   </tr>
                 ))}
               </tbody>

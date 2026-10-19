@@ -35,7 +35,7 @@ Validadas con Zod en `src/config/env.ts` (si una es inválida, la app no arranca
 | `VITE_API_BASE_URL`             | `/api-ruleta/v1`        | Base de la API (mismo origen: proxy de Vite en desarrollo, CloudFront en producción)      |
 | `VITE_ENABLE_MSW`               | `false`                 | Backend simulado en el navegador (solo desarrollo; el chunk no se descarga si es `false`) |
 | `VITE_ENABLE_WHEEL_3D`          | `false`                 | Reservada para la ruleta WebGL (HU-30). Hoy solo existe el punto de extensión             |
-| `VITE_ENABLE_PARTICIPANT_EMAIL` | `false`                 | Bandera de R2: muestra el campo y la columna de correo del participante (HU-23)           |
+| `VITE_ENABLE_PARTICIPANT_EMAIL` | `true`                  | Campo de correo del participante (HU-23), necesario para el correo al ganador; `false` lo oculta |
 | `VITE_ERROR_REPORTING_URL`      | vacío                   | URL opcional para enviar `warn`/`error` del navegador con `sendBeacon` (P-F1)             |
 | `API_PROXY_TARGET`              | `http://localhost:8080` | Solo para el proxy de Vite                                                                |
 
@@ -50,11 +50,11 @@ src/
 ├─ features/            aisladas entre sí (ESLint lo impide)
 │  ├─ guest-raffle/     modo prueba (HU-01 a HU-04)
 │  ├─ auth/             acceso, registro + migración, recuperar contraseña (HU-05 a HU-09)
-│  ├─ raffles/          selector, crear/renombrar/eliminar, opciones (HU-11, HU-12)
+│  ├─ raffles/          selector, crear/renombrar/eliminar, opciones y correo al ganador (HU-11, HU-12, HU-24, HU-29)
 │  ├─ participants/     tabla, editor con foto y recorte, activar/desactivar (HU-13 a HU-16)
-│  ├─ spins/            giro con servidor, últimos ganadores, historial (HU-17 a HU-21)
+│  ├─ spins/            giro con servidor, últimos ganadores, historial y reenvío del correo (HU-17 a HU-21, HU-25, HU-26)
 │  ├─ admin/            módulo de administración (solo ROLE_ADMIN)
-│  └─ account/          idioma, cerrar sesión, eliminar cuenta (HU-08, HU-10, HU-28)
+│  └─ account/          foto de perfil, idioma, cerrar sesión, eliminar cuenta (HU-08, HU-10, HU-28)
 ├─ components/          UI compartida: ui/, layout/, wheel/ (ruleta SVG/CSS), winner/ (modal)
 ├─ lib/                 http (cliente, CSRF, refresh), i18n, random (fairIndex), guest (Zustand), session, toast
 ├─ hooks/  utils/  config/
@@ -70,6 +70,15 @@ sesión en `{ user: {...} }`; `POST /raffles` con `participants: string[]` (el s
 apellido); foto en el campo multipart `file`; participante con `needsLastName`, `initials` y `version`;
 giro con `winner` (participante completo) y `winnerRemoved`. Todas las respuestas se validan con Zod; si
 no cumplen, se lanza `ContractError` y se muestra un error genérico.
+
+**Correo al ganador.** Se activa por sorteo en "Opciones del sorteo" (`sendWinnerEmail` y `emailLanguage`) y
+solo llega a participantes con correo. El diálogo del ganador dice qué pasó con el aviso; el historial muestra
+el estado (Programado, Enviado, Falló, Sin correo, No enviado) y se refresca cada 5 s mientras haya alguno
+programado. "Reintentar" o "Enviar" llama a `POST /spins/{id}/email-deliveries` (202).
+
+**Foto de perfil.** En "Mi cuenta" se reutiliza el campo de foto con recorte de los participantes:
+`PUT /users/me/photo` (multipart `file`) y `DELETE /users/me/photo`. La sesión trae `photoUrl` y la barra
+lateral la muestra en lugar de las iniciales.
 
 **Sesión y seguridad.** Cookies `HttpOnly` (`credentials: 'include'`), nunca tokens en el navegador. Las
 mutaciones envían `X-XSRF-TOKEN` con el valor crudo de la cookie `XSRF-TOKEN`; si la cookie aún no existe se
@@ -150,14 +159,15 @@ todo el módulo (indicadores incluidos).
 
 **Probar en local.** `npm run dev:mock` siembra un administrador: `admin@ruleta.dev` / `Admin1234`.
 
-## Calidad verificada (17-oct-2026)
+## Calidad verificada (18-oct-2026)
 
 | Prueba | Resultado |
 |---|---|
 | `npm run lint`, `typecheck`, `i18n:check`, `build` | En verde |
-| `npm test` (Vitest + Testing Library) | 104/104 |
+| `npm test` (Vitest + Testing Library) | 120/120 |
 | E2E en Chrome real contra `ruleta-api` (modo prueba, registro, participantes con foto, giros, historial, idioma, sesión, agotar ganadores, auditoría de red) | 67/67 |
 | E2E del administrador (tablero, CRUD, históricos, USER sin acceso) | 35/35 |
+| E2E foto de perfil, correo al ganador (opciones, aviso, estados, reenvío), hover sin salto, móvil 390 px sin scroll horizontal, inglés | 35/35 |
 | 200 participantes en Chrome | 23/23 · ~140 fps · ganador siempre bajo la flecha |
 
 ## Pendientes
@@ -165,5 +175,5 @@ todo el módulo (indicadores incluidos).
 - Pruebas e2e con Playwright y `@axe-core/playwright`; Lighthouse CI; pipeline de CI/CD y despliegue (S3 + CloudFront).
 - Pre-render de la página del modo prueba y SEO (`hreflang`, sitemap).
 - JS inicial ≈ 186 KB gzip (meta 180 KB): zod clásico es la mayor dependencia; migrar a `zod/mini` lo bajaría.
-- Ruleta WebGL (HU-30) y correo al ganador (R2: HU-23 a HU-26, HU-29) — solo están preparados el punto de extensión y la bandera.
+- Ruleta WebGL (HU-30) — solo está preparado el punto de extensión.
 - Monitoreo de errores (P-F1): hoy solo `sendBeacon` a una URL configurable.

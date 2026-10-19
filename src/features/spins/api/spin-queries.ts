@@ -12,6 +12,8 @@ import { spinHistorySchema, spinSchema } from './spin-schemas';
 export const HISTORY_PAGE_SIZE = 20;
 export const RECENT_WINNERS = 5;
 const SPIN_TIMEOUT_MS = 8000;
+/** Mientras algún correo siga "Programado", el historial se refresca solo para mostrar Enviado/Falló. */
+const EMAIL_POLL_MS = 5000;
 
 export const spinKeys = {
   all: (raffleId: string) => ['raffles', raffleId, 'spins'] as const,
@@ -33,6 +35,8 @@ export function spinsPageQueryOptions(raffleId: string, init: number, limit: num
       return { items: data, total: paging?.total ?? data.length, init: paging?.init ?? init };
     },
     placeholderData: keepPreviousData,
+    refetchInterval: (query) =>
+      query.state.data?.items.some((s) => s.emailStatus === 'SCHEDULED') ? EMAIL_POLL_MS : false,
   });
 }
 
@@ -80,6 +84,19 @@ export function useClearHistory(raffleId: string) {
     onSettled: () => {
       void queryClient.invalidateQueries({ queryKey: spinKeys.all(raffleId) });
       void queryClient.invalidateQueries({ queryKey: ['raffles', raffleId], exact: true });
+    },
+  });
+}
+
+/** HU-26: reenviar (o enviar por primera vez) el correo al ganador de un giro → 202. */
+export function useResendWinnerEmail(raffleId: string) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (spinId: string) => {
+      await apiRequest(`/spins/${spinId}/email-deliveries`, { method: 'POST' });
+    },
+    onSettled: () => {
+      void queryClient.invalidateQueries({ queryKey: spinKeys.all(raffleId) });
     },
   });
 }

@@ -118,7 +118,7 @@
 
 .table {
   width: 100%;
-  min-width: 520px;
+  min-width: 640px;
   border-collapse: collapse;
   font-size: 0.9375rem;
 }
@@ -141,6 +141,36 @@
 
 .alignEnd {
   text-align: right !important;
+}
+
+.emailCell {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.emailStatus {
+  font-size: 0.8125rem;
+  color: var(--color-ivory-faint);
+}
+
+.emailStatus[data-status='SENT'] {
+  color: var(--color-success);
+}
+
+.emailStatus[data-status='SCHEDULED'] {
+  color: var(--color-gold);
+}
+
+.emailStatus[data-status='FAILED'] {
+  color: var(--color-danger);
+}
+
+.resendButton {
+  min-height: 32px;
+  padding: 0 10px;
+  font-size: 0.8125rem;
 }
 
 .roundCell {

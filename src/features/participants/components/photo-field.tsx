@@ -12,6 +12,10 @@ type PhotoFieldProps = {
   disabled: boolean;
   onCropped: (blob: Blob) => void;
   onRemove: () => void;
+  /** Por defecto "Foto (opcional)" y la pista de la ruleta; "Mi cuenta" usa sus propios textos. */
+  label?: string;
+  hint?: string;
+  optional?: boolean;
 };
 
 /** HU-15: elegir o arrastrar JPG, PNG o WebP de hasta 2 MB, con vista previa circular. */
@@ -21,6 +25,9 @@ export function PhotoField({
   disabled,
   onCropped,
   onRemove,
+  label,
+  hint,
+  optional = true,
 }: PhotoFieldProps) {
   const { t } = useTranslation();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -55,8 +62,13 @@ export function PhotoField({
   return (
     <div className={styles.photoField}>
       <span className={styles.fieldLabel}>
-        {t('participants.photo.label')}{' '}
-        <span className={styles.optional}>{t('common.optional')}</span>
+        {label ?? t('participants.photo.label')}
+        {optional ? (
+          <>
+            {' '}
+            <span className={styles.optional}>{t('common.optional')}</span>
+          </>
+        ) : null}
       </span>
       <div
         className={cn(styles.dropzone, dragging && styles.dropzoneActive)}
@@ -95,7 +107,7 @@ export function PhotoField({
             ) : null}
           </div>
           <span id={hintId} className={styles.hint}>
-            {t('participants.photo.hint')}
+            {hint ?? t('participants.photo.hint')}
           </span>
         </div>
         <input

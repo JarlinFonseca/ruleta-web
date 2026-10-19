@@ -61,7 +61,14 @@
     "spinAgain": "Girar de nuevo",
     "remove": "Quitar de la ruleta",
     "removedNote": "Ya no está en la ruleta.",
-    "photoAlt": "Foto de {{name}}"
+    "photoAlt": "Foto de {{name}}",
+    "email": {
+      "scheduled": "Le enviaremos un correo con el resultado.",
+      "scheduledTo": "Le enviaremos un correo a {{email}}.",
+      "sent": "Le enviamos un correo con el resultado.",
+      "noEmail": "No tiene correo registrado: no se le envió aviso.",
+      "failed": "No pudimos enviarle el correo. Puedes reintentarlo desde el historial."
+    }
   },
   "guest": {
     "banner": {
@@ -217,8 +224,12 @@
       "label": "Opciones del sorteo",
       "removeWinner": "Quitar al ganador después de cada giro",
       "winnerEmail": "Enviar correo al ganador",
-      "winnerEmailHint": "Disponible en una próxima versión",
-      "soon": "Pronto"
+      "winnerEmailHint": "Solo llega a los participantes que tengan correo.",
+      "emailLanguage": "Idioma del correo",
+      "languages": {
+        "es": "Español",
+        "en": "Inglés"
+      }
     },
     "panel": {
       "manage": "Gestionar participantes",
@@ -316,7 +327,20 @@
       "range": "Mostrando {{from}}–{{to}} de {{total}}",
       "page": "Página {{page}} de {{pages}}",
       "previous": "Anterior",
-      "next": "Siguiente"
+      "next": "Siguiente",
+      "email": "Correo",
+      "emailStatus": {
+        "NONE": "—",
+        "SCHEDULED": "Programado",
+        "SENT": "Enviado",
+        "FAILED": "Falló",
+        "NO_EMAIL": "Sin correo",
+        "DISABLED": "No enviado"
+      },
+      "resend": "Reintentar",
+      "send": "Enviar",
+      "resendFor": "Enviar el correo a {{name}}",
+      "resendDone": "Correo en cola de envío."
     },
     "clearDialog": {
       "title": "¿Limpiar el historial?",
@@ -344,6 +368,12 @@
       "word": "ELIMINAR",
       "confirm": "Eliminar definitivamente",
       "done": "Tu cuenta fue eliminada."
+    },
+    "photo": {
+      "label": "Foto de perfil",
+      "hint": "JPG, PNG o WebP, hasta 2 MB. También puedes arrastrarla aquí. Se guarda al recortarla.",
+      "saved": "Foto de perfil actualizada.",
+      "removed": "Quitamos tu foto de perfil."
     }
   },
   "notFound": {

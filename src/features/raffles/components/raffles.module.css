@@ -113,30 +113,24 @@ label.optionRow {
   gap: 2px;
 }
 
-.optionTextMuted {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--color-ivory-faint);
-}
-
 .optionHint {
   font-size: 0.75rem;
   color: var(--color-ivory-faint);
 }
 
-.soonBadge {
-  flex: 0 0 auto;
-  min-height: 24px;
+.optionSelect {
+  min-height: 36px;
   padding: 0 10px;
-  border-radius: var(--radius-pill);
-  border: 1px solid rgb(212 176 106 / 0.4);
-  color: var(--color-gold);
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-control);
+  background: var(--color-ink);
+  color: var(--color-ivory);
+  font-size: 0.875rem;
+}
+
+.optionSelect:focus-visible {
+  outline: 2px solid var(--color-gold-strong);
+  outline-offset: 2px;
 }
 
 .dialogForm {
